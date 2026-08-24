@@ -112,7 +112,10 @@ export default function MethodPage() {
         </h2>
         <p className="mt-3 leading-relaxed">
           {sampleReport.company.name} — labeled fiction, not a real company.
-          Evidence is inferred.
+          Evidence is inferred. This fiction assumes the operator takes the
+          homeowner’s card, pays the worker later, and has not built
+          processor-required provider controls. If those controls were in
+          place, this would not be the dominant break.
         </p>
         <div className="mt-6">
           <GlanceObject glance={sampleReport.glance} />

@@ -31,8 +31,10 @@ export default function SampleAnatomyPage() {
         <h2 className="section-label">Glance</h2>
         <p className="mt-3 max-w-measure leading-relaxed">
           Four fields. For a first-time operator the money path breaks at
-          payment onboarding, not at later off-platform leakage. Evidence is
-          inferred.
+          payment onboarding when provider controls are missing, not at later
+          off-platform leakage. Evidence is inferred. This fiction assumes
+          those controls are missing; if the operator had them, this would not
+          be the dominant break.
         </p>
         <div className="mt-6">
           <GlanceObject glance={glance} />
@@ -43,12 +45,13 @@ export default function SampleAnatomyPage() {
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
           The first three sit on this cycle: payment companies will not approve
-          sitting in the money, charging the homeowner is being the merchant of
-          record, and anyone can sign up to do the work. Off-platform repeat
-          business is later — you have to finish a first job before anyone can
-          go around you. Two short sections on the report name processor
-          underwrite tripwires and legal and contractable issues a first-time
-          operator misses.
+          being in the flow of funds without proper provider vetting, charging
+          the homeowner is being the merchant of record because you take 100%
+          of the payment, and anyone can sign up to do the work. Off-platform
+          repeat business is later — you have to finish a first job before
+          anyone can go around you. Two short sections on the report name
+          processor underwrite tripwires and legal and contractable issues a
+          first-time operator misses.
         </p>
       </div>
 
@@ -56,12 +59,13 @@ export default function SampleAnatomyPage() {
         <h2 className="section-label">If this model is to hold</h2>
         <p className="mt-3 leading-relaxed">
           The plan is numbered to those same breaks plus the tripwire sections:
-          cash that can eat chargebacks and refunds for 90–180 days of volume,
-          a processor check you can pass, treat charging the homeowner as being
-          merchant of record (or charge the trade’s account / sell the
-          introduction only), license and deposit rules before you scale, vet
-          for payout as well as skill, and keep the next job on the platform
-          or stop sitting in the charge.
+          provider controls a processor can underwrite, cash that can cover
+          fulfillment exposure as volume grows, a processor check you can pass,
+          treat charging the homeowner as being merchant of record (the take
+          rate is the fee, not the test — or charge the worker’s account / sell
+          the introduction only), license and deposit rules before you scale,
+          vet for payout as well as skill, and keep the next job on the
+          platform or stop sitting in the charge.
         </p>
       </section>
 
