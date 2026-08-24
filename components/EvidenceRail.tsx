@@ -20,7 +20,11 @@ export function EvidenceRail({ rows }: { rows: FailureModeRow[] }) {
               <p className="mt-2">
                 <Chip>{EVIDENCE_LABEL[row.evidence]}</Chip>
               </p>
-              {thin ? (
+              {row.evidence_note ? (
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {row.evidence_note}
+                </p>
+              ) : thin ? (
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {EVIDENCE_GLOSS[row.evidence]}
                 </p>
