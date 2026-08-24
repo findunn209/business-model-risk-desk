@@ -218,19 +218,20 @@ export const sampleReport: SampleReport = {
           definition:
             "Merchant category code: the processor’s label for what you actually sell, taken from volume, not from the pitch.",
         },
+        {
+          term: "FCRA",
+          definition:
+            "Fair Credit Reporting Act: federal rules for running background checks.",
+        },
       ],
       items: [
         {
-          lead: "Taking the homeowner’s money",
-          body: "If you collect the card and pay the trade later, payments lawyers may treat you as money transmission and as merchant of record.",
-        },
-        {
           lead: "Who the homeowner thinks they hired",
-          body: "You are not a licensed-contractor marketplace just because you list plumbers. Their license is not yours. Selling the introduction (the pro pays for a contact) is not the same as arranging the job and taking the money. If you price the job, are party to the contract, or take payment, states treat you more like a contractor than an app. Licensed trades (plumbing, electrical, HVAC, roofing) still need their licenses. Listing an unlicensed one is your problem too.",
+          body: "Selling the introduction (lead-gen: the pro pays for a contact) is not the same as arranging the job and taking the money. If you price the job, are party to the contract, or take payment, states treat you more like a contractor than an app. Licensed trades (plumbing, electrical, HVAC, roofing) still need their licenses. Listing an unlicensed one is your problem too.",
         },
         {
-          lead: "Deposits and delayed jobs",
-          body: "Book today, job Saturday, a deposit. That makes the money-transmission and merchant-of-record read worse, not better. Home-improvement rules often cap down payments (example: California, $1,000 or 10%, whichever is less) and require a written contract. If you are merchant of record, checkout is the down payment. “We held it for the pro” does not erase that.",
+          lead: "Deposits",
+          body: "Home-improvement rules often cap down payments (example: California, $1,000 or 10%, whichever is less) and require a written contract. If you are merchant of record, checkout is the down payment. “We held it for the pro” does not erase that.",
         },
         {
           lead: "Worker classification",
@@ -246,13 +247,15 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "Payments legal",
-          body: "The processor contract will demand a payout identity check (KYC), a refund policy, and they can dump you. They will pick an MCC from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence. One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
+          body: "They will pick an MCC from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence. One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
         },
         {
           lead: "Before you scale",
           body: "License gate by trade and ZIP before the card is charged. Small deposit tied to work. Payout delay plus proof the job was done. Consent for SMS and email. No stored-value wallet.",
         },
       ],
+      closer:
+        "This is not legal advice; several of these need a lawyer before you scale.",
     },
   ],
   if_this_model_is_to_hold: [
@@ -278,7 +281,7 @@ export const sampleReport: SampleReport = {
     },
     {
       failure_mode_id: "legal-and-contractable",
-      text: "One payments story on the receipt: either you sell the job or the pro is the merchant. Expect the processor contract to demand KYC and a refund policy — they can dump you. Get a lawyer on money transmission, deposits, and worker classification before you scale.",
+      text: "One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
     },
     {
       failure_mode_id: "vetting",
