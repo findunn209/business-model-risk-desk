@@ -179,7 +179,7 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "What fails",
-          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months. Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account into a “marketplace.”",
+          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months. Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, negative-option plans, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account into a “marketplace.”",
         },
         {
           lead: "Terms if they say yes",
