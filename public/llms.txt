@@ -1,6 +1,6 @@
 # Business Model Risk Desk
 
-> We do not say if you should exist. We say how this internet/app model dies and the plan to change it.
+> We do not say if you should exist. We say where this internet/app model breaks, and the plan to fix those breaks.
 
 Public site. No auth. Assessments of live URLs are not available yet.
 
@@ -16,4 +16,4 @@ Public site. No auth. Assessments of live URLs are not available yet.
 
 Not a credit rating. Not investment advice. Not a verdict on whether a company should exist. Not a 0–100 score, letter grade, or Clear / Watch / Blocked credit label.
 
-The glance object is four fields: dominant_kill, time_to_break (already | this_cycle | later | unbounded_if_holds), evidence (measured | inferred | unknown), model_condition (breaking | fragile | contingent | insufficient_evidence).
+The glance object is four fields: dominant_break, time_to_break (already | this_cycle | later | unbounded_if_holds), evidence (measured | inferred | unknown), model_condition (breaking | fragile | contingent | insufficient_evidence).

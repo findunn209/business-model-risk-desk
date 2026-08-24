@@ -19,7 +19,7 @@ export type Evidence = (typeof EVIDENCE)[number];
 export type ModelCondition = (typeof MODEL_CONDITION)[number];
 
 export type Glance = {
-  dominant_kill: string;
+  dominant_break: string;
   time_to_break: TimeToBreak;
   evidence: Evidence;
   model_condition: ModelCondition;

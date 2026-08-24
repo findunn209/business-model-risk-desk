@@ -19,8 +19,8 @@ export default function MethodPage() {
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16">
       <h1 className="font-serif text-4xl font-medium tracking-tight">Method</h1>
       <p className="mt-6 max-w-xl text-lg leading-snug">
-        We publish how an internet/app model dies, and what would have to change
-        for it to hold. We do not publish whether a company should exist.
+        We publish where an internet/app model breaks, and the plan to fix those
+        breaks. We do not publish whether a company should exist.
       </p>
 
       <section className="mt-14">
@@ -30,7 +30,7 @@ export default function MethodPage() {
         <p className="mt-3 max-w-xl leading-relaxed">
           There is no 0–100. There is no letter grade. There is no Clear / Watch
           / Blocked wrap treated as credit. A single number on a company asks
-          the wrong question and hides the mechanism. If evidence is thin, the
+          the wrong question and hides the failure mode. If evidence is thin, the
           glance says so. We do not average our way out of it.
         </p>
       </section>
@@ -46,11 +46,11 @@ export default function MethodPage() {
         <dl className="mt-8 divide-y divide-rule border-y border-rule">
           <div className="grid gap-1 py-4 sm:grid-cols-[12.5rem_1fr] sm:gap-6">
             <dt className="font-mono text-[0.8rem] text-muted">
-              dominant_kill
+              dominant_break
             </dt>
             <dd className="leading-relaxed">
-              The mechanism most likely to end this model as drawn. Plain
-              language, not a code.
+              The failure mode most likely to break this model as drawn — where
+              the money path stops working. Plain language, not a code.
             </dd>
           </div>
           <div className="grid gap-1 py-4 sm:grid-cols-[12.5rem_1fr] sm:gap-6">
@@ -104,12 +104,12 @@ export default function MethodPage() {
 
       <section className="mt-14">
         <h2 className="font-serif text-2xl font-medium tracking-tight">
-          Kill table
+          Failure modes
         </h2>
         <p className="mt-3 max-w-xl leading-relaxed">
-          Rows are mechanisms. They are not rolled into a company total. A
-          report may also state what would have to change for the model to hold.
-          That is a plan for the model, not advice to invest, divest, or shut
+          Rows are breaks. They are not rolled into a company total. A report
+          may also state what would have to change for the model to hold. That
+          is a plan to fix those breaks, not advice to invest, divest, or shut
           the company down.
         </p>
       </section>

@@ -2,7 +2,7 @@
 
 Public site for Business Model Risk Desk.
 
-We do not say if you should exist. We say how this internet/app model dies and the plan to change it.
+We do not say if you should exist. We say where this internet/app model breaks, and the plan to fix those breaks.
 
 This repository is that public site: a Next.js App Router app in TypeScript, deployable on Vercel Hobby. There is no auth, no CMS, and no chat. Live URL assessments are not available yet.
 
@@ -21,7 +21,7 @@ A report is not a credit rating, not investment advice, and not a verdict on whe
 
 The **glance object** is four fields:
 
-- `dominant_kill`
+- `dominant_break`
 - `time_to_break` — `already` | `this_cycle` | `later` | `unbounded_if_holds`
 - `evidence` — `measured` | `inferred` | `unknown`
 - `model_condition` — `breaking` | `fragile` | `contingent` | `insufficient_evidence`

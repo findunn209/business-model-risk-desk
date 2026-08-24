@@ -1,7 +1,7 @@
 import type { Glance } from "@/lib/glance";
 
 const fields: { key: keyof Glance; label: string }[] = [
-  { key: "dominant_kill", label: "dominant_kill" },
+  { key: "dominant_break", label: "dominant_break" },
   { key: "time_to_break", label: "time_to_break" },
   { key: "evidence", label: "evidence" },
   { key: "model_condition", label: "model_condition" },

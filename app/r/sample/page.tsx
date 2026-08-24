@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { GlanceObject } from "@/components/GlanceObject";
-import { KillTable } from "@/components/KillTable";
+import { FailureModes } from "@/components/FailureModes";
 import { sampleReport } from "@/lib/sample-report";
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default function SampleReportPage() {
       </div>
 
       <div className="mt-14">
-        <KillTable rows={report.kills} />
+        <FailureModes rows={report.failure_modes} />
       </div>
 
       <section className="mt-14">
