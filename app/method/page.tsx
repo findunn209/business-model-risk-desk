@@ -66,9 +66,9 @@ export default function MethodPage() {
             <dd>
               <ul className="space-y-2">
                 {TIME_TO_BREAK.map((value) => (
-                  <li key={value}>
+                  <li key={value} className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                     <span className="chip">{TIME_TO_BREAK_LABEL[value]}</span>
-                    <span className="text-muted"> — {TIME_TO_BREAK_GLOSS[value]}</span>
+                    <span className="text-muted">— {TIME_TO_BREAK_GLOSS[value]}</span>
                   </li>
                 ))}
               </ul>
@@ -81,9 +81,9 @@ export default function MethodPage() {
             <dd>
               <ul className="space-y-2">
                 {EVIDENCE.map((value) => (
-                  <li key={value}>
+                  <li key={value} className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                     <span className="chip">{EVIDENCE_LABEL[value]}</span>
-                    <span className="text-muted"> — {EVIDENCE_GLOSS[value]}</span>
+                    <span className="text-muted">— {EVIDENCE_GLOSS[value]}</span>
                   </li>
                 ))}
               </ul>
@@ -96,12 +96,9 @@ export default function MethodPage() {
             <dd>
               <ul className="space-y-2">
                 {MODEL_CONDITION.map((value) => (
-                  <li key={value}>
+                  <li key={value} className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                     <span className="chip">{MODEL_CONDITION_LABEL[value]}</span>
-                    <span className="text-muted">
-                      {" "}
-                      — {MODEL_CONDITION_GLOSS[value]}
-                    </span>
+                    <span className="text-muted">— {MODEL_CONDITION_GLOSS[value]}</span>
                   </li>
                 ))}
               </ul>
