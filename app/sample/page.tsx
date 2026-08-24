@@ -41,19 +41,24 @@ export default function SampleAnatomyPage() {
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
           The first three sit on this cycle: payment companies will not approve
-          sitting in the money, who the customer paid is unchosen, and anyone
-          can sign up to do the work. Off-platform repeat business is later —
-          you have to finish a first job before anyone can go around you.
+          sitting in the money, charging the homeowner is being the merchant of
+          record, and anyone can sign up to do the work. Off-platform repeat
+          business is later — you have to finish a first job before anyone can
+          go around you. Two short sections on the report name processor
+          underwrite tripwires and legal tripwires a first-time operator misses.
         </p>
       </div>
 
       <section className="mt-14 max-w-measure">
         <h2 className="section-label">If this model is to hold</h2>
         <p className="mt-3 leading-relaxed">
-          The plan is numbered to those same breaks: capitalize until a payment
-          company will approve the flow of funds, choose merchant of record
-          versus platform on purpose, vet workers before they see a homeowner,
-          and keep the next job on the platform.
+          The plan is numbered to those same breaks plus the tripwire sections:
+          cash that can eat chargebacks and refunds for 90–180 days of volume,
+          a processor check you can pass, treat charging the homeowner as being
+          merchant of record (or charge the trade’s account / sell the
+          introduction only), get payments-legal eyes on money transmission,
+          vet for payout as well as skill, and keep the next job on the platform
+          or stop sitting in the charge.
         </p>
       </section>
 

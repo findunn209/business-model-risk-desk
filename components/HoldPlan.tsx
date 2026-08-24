@@ -1,13 +1,13 @@
-import type { FailureModeRow, HoldPlanItem } from "@/lib/sample-report";
+import type { HoldPlanItem, PlanBind } from "@/lib/sample-report";
 
 export function HoldPlan({
   items,
-  modes,
+  binds,
 }: {
   items: HoldPlanItem[];
-  modes: FailureModeRow[];
+  binds: PlanBind[];
 }) {
-  const byId = new Map(modes.map((row) => [row.id, row]));
+  const byId = new Map(binds.map((row) => [row.id, row]));
 
   return (
     <section aria-labelledby="hold-plan-heading" className="mt-14">
@@ -16,12 +16,12 @@ export function HoldPlan({
       </h2>
       <ol className="mt-5 max-w-measure list-decimal space-y-5 pl-5">
         {items.map((item, index) => {
-          const mode = byId.get(item.failure_mode_id);
+          const bind = byId.get(item.failure_mode_id);
           return (
             <li key={index} className="leading-relaxed">
-              {mode ? (
+              {bind ? (
                 <p className="mb-1 font-mono text-[11px] tracking-wide">
-                  <a href={`#${mode.id}`}>{mode.failure_mode}</a>
+                  <a href={`#${bind.id}`}>{bind.label}</a>
                 </p>
               ) : null}
               <p>{item.text}</p>

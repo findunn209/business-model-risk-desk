@@ -5,7 +5,8 @@ import { FailureModes } from "@/components/FailureModes";
 import { GlanceObject } from "@/components/GlanceObject";
 import { HoldPlan } from "@/components/HoldPlan";
 import { PageKicker } from "@/components/PageKicker";
-import { sampleReport } from "@/lib/sample-report";
+import { TripwireSections } from "@/components/TripwireSections";
+import { planBinds, sampleReport } from "@/lib/sample-report";
 
 export const metadata: Metadata = {
   title: `${sampleReport.company.name} (sample)`,
@@ -42,9 +43,11 @@ export default function SampleReportPage() {
         <EvidenceRail rows={report.failure_modes} />
       </div>
 
+      <TripwireSections sections={report.tripwire_sections} />
+
       <HoldPlan
         items={report.if_this_model_is_to_hold}
-        modes={report.failure_modes}
+        binds={planBinds(report)}
       />
       <p className="mt-8 max-w-measure leading-relaxed">{report.notes}</p>
     </main>

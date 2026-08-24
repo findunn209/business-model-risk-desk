@@ -17,7 +17,7 @@ This repository is that public site: a Next.js App Router app in TypeScript, dep
 
 ## What a report is
 
-A report names where an internet/app model breaks, and the plan to fix those breaks. Public pages state once, as a kicker, that this is not a credit rating, investment advice, letter grade, 0–100 score, or a verdict on whether a company should exist.
+A report names where an internet/app model breaks, and the plan to fix those breaks. Public pages state once, as a kicker, that this is not a credit rating, investment advice, legal advice, letter grade, 0–100 score, or a verdict on whether a company should exist.
 
 The **glance object** is four fields:
 
@@ -26,7 +26,7 @@ The **glance object** is four fields:
 - `evidence` — `measured` | `inferred` | `unknown`
 - `model_condition` — `breaking` | `fragile` | `contingent` | `insufficient_evidence`
 
-The sample uses **Porchlist**, a labeled-fake local-services marketplace. The worked glance is payment-company approval to sit in the money (inferred), with merchant of record vs platform, vetting, and off-platform repeat work as further failure modes.
+The sample uses **Porchlist**, a labeled-fake local-services marketplace. The worked glance is payment-company approval to sit in the money (inferred). Charging the homeowner is merchant of record. Further failure modes: vetting before payout, off-platform repeat work.
 
 ## Develop
 

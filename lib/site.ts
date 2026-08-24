@@ -14,4 +14,4 @@ export const DISPLAY_SUB = "We do not say if you should exist.";
  * “not a score” into this line. Do not repeat it in body copy, banners, or footer.
  */
 export const PAGE_KICKER =
-  "Not a credit rating or investment advice. Not a letter grade, 0–100 score, or a verdict on whether a company should exist.";
+  "Not a credit rating, investment advice, or legal advice. Not a letter grade, 0–100 score, or a verdict on whether a company should exist.";
