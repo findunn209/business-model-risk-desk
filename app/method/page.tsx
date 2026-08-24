@@ -115,7 +115,8 @@ export default function MethodPage() {
           Evidence is inferred. This fiction assumes the operator takes the
           homeowner’s card, pays the worker later, and has not built
           processor-required provider controls. If those controls were in
-          place, this would not be the dominant break.
+          the file, this would not be the dominant break. It does not invent
+          a processor denial.
         </p>
         <div className="mt-6">
           <GlanceObject glance={sampleReport.glance} />

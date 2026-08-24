@@ -26,7 +26,7 @@ The **glance object** is four fields:
 - `evidence` — `measured` | `inferred` | `unknown`
 - `model_condition` — `breaking` | `fragile` | `contingent` | `insufficient_evidence`
 
-The sample uses **Porchlist**, a labeled-fake local-services marketplace. The worked glance is payment-company approval of the flow of funds without proper provider vetting (inferred). This fiction assumes those controls are missing. Charging the homeowner is merchant of record because the operator takes 100% of the payment, then pays the worker. Further failure modes: vetting before payout, off-platform repeat work. The report also has PSP underwrite tripwires and a legal-and-contractable section.
+The sample uses **Porchlist**, a labeled-fake local-services marketplace. The worked glance is missing provider controls while in the flow of funds (inferred, contingent). This fiction assumes those controls are missing; it does not invent a processor denial. Charging the homeowner is merchant of record because the operator takes 100% of the payment, then pays the worker. Further failure modes: vetting before payout, off-platform repeat work. The report also has PSP underwrite tripwires and a legal-and-contractable section.
 
 ## Develop
 

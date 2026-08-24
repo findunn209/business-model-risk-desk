@@ -44,14 +44,13 @@ export default function SampleAnatomyPage() {
       <div className="mt-14">
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
-          The first three sit on this cycle: payment companies will not approve
-          being in the flow of funds without proper provider vetting, charging
-          the homeowner is being the merchant of record because you take 100%
-          of the payment, and anyone can sign up to do the work. Off-platform
-          repeat business is later — you have to finish a first job before
-          anyone can go around you. Two short sections on the report name
-          processor underwrite tripwires and legal and contractable issues a
-          first-time operator misses.
+          The first three sit on this cycle: missing provider controls while
+          in the flow of funds, charging the homeowner is being the merchant
+          of record because you take 100% of the payment, and anyone can sign
+          up to do the work. Off-platform repeat business is later — you have
+          to finish a first job before anyone can go around you. Two short
+          sections on the report name processor underwrite tripwires and legal
+          and contractable issues a first-time operator misses.
         </p>
       </div>
 
@@ -59,10 +58,11 @@ export default function SampleAnatomyPage() {
         <h2 className="section-label">If this model is to hold</h2>
         <p className="mt-3 leading-relaxed">
           The plan is numbered to those same breaks plus the tripwire sections:
-          provider controls a processor can underwrite, cash that can cover
-          fulfillment exposure as volume grows, a processor check you can pass,
-          treat charging the homeowner as being merchant of record (the take
-          rate is the fee, not the test — or charge the worker’s account / sell
+          provider controls a processor requires of you and will not build for
+          you, cash that can cover unfulfilled GMV as volume grows, a
+          marketplace-MoR underwrite you can pass, treat charging the
+          homeowner as being merchant of record (the take rate is the fee;
+          100% of GMV is the exposure — or charge the worker’s account / sell
           the introduction only), license and deposit rules before you scale,
           vet for payout as well as skill, and keep the next job on the
           platform or stop sitting in the charge.
