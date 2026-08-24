@@ -1,4 +1,3 @@
-import { Term } from "@/components/Term";
 import type { TripwireSection } from "@/lib/sample-report";
 
 export function TripwireSections({
@@ -11,16 +10,6 @@ export function TripwireSections({
       {sections.map((section) => (
         <section key={section.id} id={section.id} className="scroll-mt-8">
           <h2 className="section-label">{section.title}</h2>
-          {section.jargon?.map((item) => (
-            <p
-              key={item.term}
-              className="mt-2 text-sm leading-relaxed text-muted"
-            >
-              <Term definition={item.definition}>{item.term}</Term>
-              {" — "}
-              {item.definition}
-            </p>
-          ))}
           <p className="mt-3 leading-relaxed">{section.intro}</p>
           <ol className="mt-5 list-decimal space-y-4 pl-5">
             {section.items.map((item) => (
@@ -30,7 +19,7 @@ export function TripwireSections({
             ))}
           </ol>
           {section.closer ? (
-            <p className="mt-5 text-sm leading-relaxed text-muted">
+            <p className="mt-5 max-w-measure leading-relaxed text-muted">
               {section.closer}
             </p>
           ) : null}

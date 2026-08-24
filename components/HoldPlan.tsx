@@ -17,9 +17,11 @@ export function HoldPlan({
       <ol className="mt-5 max-w-measure list-decimal space-y-5 pl-5">
         {items.map((item, index) => {
           const bind = byId.get(item.failure_mode_id);
+          const prevId = index > 0 ? items[index - 1].failure_mode_id : null;
+          const showLabel = bind && bind.id !== prevId;
           return (
             <li key={index} className="leading-relaxed">
-              {bind ? (
+              {bind && showLabel ? (
                 <p className="mb-1 font-mono text-[11px] tracking-wide">
                   <a href={`#${bind.id}`}>{bind.label}</a>
                 </p>

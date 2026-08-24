@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GlanceObject } from "@/components/GlanceObject";
 import { FailureModes } from "@/components/FailureModes";
+import { GlanceObject } from "@/components/GlanceObject";
+import { PageKicker } from "@/components/PageKicker";
 import { sampleReport } from "@/lib/sample-report";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function SampleAnatomyPage() {
       <h1 className="font-serif text-4xl font-medium tracking-tight">
         Anatomy of the sample
       </h1>
+      <PageKicker className="mt-3" />
       <p className="mt-5 max-w-measure text-[1.05rem] leading-snug">
         A walk through the frozen report on{" "}
         <Link href="/r/sample">{company.name}</Link> — labeled fiction, not a
