@@ -178,7 +178,7 @@ export const sampleReport: SampleReport = {
       items: [
         {
           lead: "18% is economics; 100% of GMV is exposure",
-          body: "The take rate is the fee. If you take the homeowner’s payment then pay the worker, 100% of GMV is the card, chargeback, refund, and deposit exposure. Processors can approve that. The break is you took the money and cannot prove who will show up, that they may legally do this job here, and that the work will be done.",
+          body: "The take rate is the fee. If you take the homeowner’s payment then pay the worker, 100% of GMV is the card, chargeback, refund, and deposit exposure. Processors can approve that. The break is you took the money and cannot prove who will show up, that they may legally do this job here, and that the work will be done (KYC + license/ability + post-job quality).",
         },
         {
           lead: "Facilitator is not merchant of record",
