@@ -145,7 +145,7 @@ export const sampleReport: SampleReport = {
       items: [
         {
           lead: "Assumption on this sample",
-          body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not built the processor-required provider controls. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a merchant account is impossible. If those controls were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes.",
+          body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not built the processor-required provider controls. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a MID (the processor’s account number for you) is impossible. If those controls were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes.",
         },
         {
           lead: "Two underwrites",
@@ -153,11 +153,11 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "What they need to see",
-          body: "Two stacks. What the PSP requires of you: identity, tax, bank, financials, a site that says delivery and refunds, and an honest funds flow — take the card and pay workers, or a lead fee only. That is platform onboarding, not a no. What they will not do for you, and what you must bring: KYC on each provider (sub-merchant in a PSP underwrite), proof they can do the advertised job, pause payout until delivered, customer confirmation of quality, and ratings you own. Missing that second stack is the dominant break. Exposure is days between charge and fulfillment times volume — same for monthly vs annual prepaid. Cash covers it. Tools if you pay providers: Stripe Connect, or a PSP plus a payouts rail (Hyperwallet, Payoneer, and the like). A payout rail KYCs payees and sends money; it does not move card risk if you already charged the homeowner.",
+          body: "Honest funds flow: take the card and pay workers, or a lead fee only. Provider vetting in three parts you own: KYC on each provider (sub-merchant in a PSP underwrite), can they do the advertised job, and a post-job quality loop — pause payout until delivered, customer confirmation, ratings. Exposure is days between charge and fulfillment times volume — same for monthly vs annual prepaid. Cash covers it.",
         },
         {
           lead: "What fails",
-          body: "No provider KYC. Cannot perform the advertised service. No quality or dispute loop while sitting in the money. Stealth aggregation on a vanilla SaaS MID (the processor’s account number for you). Future-service with no capital, hold, or quality loop. “We have reviews” is not that loop. Sitting in the money by itself is not the fail. MATCH (a list processors share of merchants they terminated), or hopping from a terminated contractor account into a “marketplace.”",
+          body: "No provider KYC. Cannot perform the advertised service. No quality or dispute loop while sitting in the money. Stealth aggregation on a vanilla SaaS MID. Future-service with no capital, hold, or quality loop. “We have reviews” is not that loop. Sitting in the money by itself is not the fail. MATCH (a list processors share of merchants they terminated), or hopping from a terminated contractor account into a “marketplace.”",
         },
         {
           lead: "Terms if they say yes",
@@ -232,7 +232,7 @@ export const sampleReport: SampleReport = {
     },
     {
       failure_mode_id: "psp-underwrite-tripwires",
-      text: "If they say yes, budget delayed or manual payout until the job is done, a hold sized to unfulfilled volume (Connect’s public max hold is 180 days), volume caps until statements, and negative balances the platform eats. They can freeze the whole platform. Instant payout before the job is confirmed is how cash gets eaten, not why a merchant account is impossible.",
+      text: "If they say yes, budget delayed or manual payout until the job is done, a hold sized to unfulfilled volume (Connect’s public max hold is 180 days), volume caps until statements, and negative balances the platform eats. They can freeze the whole platform. Instant payout before the job is confirmed is how cash gets eaten, not why a MID is impossible.",
     },
     {
       failure_mode_id: "merchant-of-record",
