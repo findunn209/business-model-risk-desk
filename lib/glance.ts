@@ -36,7 +36,7 @@ export const TIME_TO_BREAK_GLOSS: Record<TimeToBreak, string> = {
 export const EVIDENCE_GLOSS: Record<Evidence, string> = {
   measured: "Observed in this model's operations or artifacts.",
   inferred: "Deduced from structure, comparables, or public record.",
-  unknown: "Not established. We do not fill the gap with a score.",
+  unknown: "Not established. We do not guess to fill the gap.",
 };
 
 export const MODEL_CONDITION_GLOSS: Record<ModelCondition, string> = {
@@ -66,3 +66,8 @@ export const MODEL_CONDITION_LABEL: Record<ModelCondition, string> = {
   contingent: "contingent",
   insufficient_evidence: "insufficient evidence",
 };
+
+export const FAILURE_MODE_GLOSS =
+  "a specific way this model stops working as drawn";
+
+export const FAILURE_MODE_DEFINITION = `A failure mode is ${FAILURE_MODE_GLOSS}.`;

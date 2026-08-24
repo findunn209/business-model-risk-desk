@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PageKicker } from "@/components/PageKicker";
 import { DISPLAY_PROMISE, DISPLAY_SUB } from "@/lib/site";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <p className="mt-5 max-w-measure text-[1.05rem] leading-snug text-muted">
         {DISPLAY_SUB}
       </p>
+      <PageKicker className="mt-6" />
 
       <form className="mt-12" aria-label="Assessments next">
         <label htmlFor="url" className="kicker block">

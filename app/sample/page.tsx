@@ -28,7 +28,9 @@ export default function SampleAnatomyPage() {
       <div className="mt-12">
         <h2 className="section-label">Glance</h2>
         <p className="mt-3 max-w-measure leading-relaxed">
-          Four fields. There is still no company score.
+          Four fields. For a first-time operator the money path breaks at
+          payment onboarding, not at later off-platform leakage. Evidence is
+          inferred.
         </p>
         <div className="mt-6">
           <GlanceObject glance={glance} />
@@ -38,19 +40,20 @@ export default function SampleAnatomyPage() {
       <div className="mt-14">
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
-          The first two sit on this cycle because bypass and unit economics are
-          the same leak. Later rows (supply unwind, liability, demand capture)
-          can break the model if the leak is not closed. None of them is
-          averaged into a grade.
+          The first three sit on this cycle: payment companies will not approve
+          sitting in the money, who the customer paid is unchosen, and anyone
+          can sign up to do the work. Off-platform repeat business is later —
+          you have to finish a first job before anyone can go around you.
         </p>
       </div>
 
       <section className="mt-14 max-w-measure">
         <h2 className="section-label">If this model is to hold</h2>
         <p className="mt-3 leading-relaxed">
-          The plan is what would have to change in the model — introduction fee
-          plus tools, contractor of record, or a SKU that cannot be bypassed. It
-          is not a recommendation to keep or close the company.
+          The plan is numbered to those same breaks: capitalize until a payment
+          company will approve the flow of funds, choose merchant of record
+          versus platform on purpose, vet workers before they see a homeowner,
+          and keep the next job on the platform.
         </p>
       </section>
 

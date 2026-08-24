@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { DISCLAIMER } from "@/lib/site";
 
 const links = [
   { href: "/r/sample", label: "Sample", twin: false },
@@ -37,7 +36,6 @@ export function SiteFooter() {
             </span>
           ))}
         </nav>
-        <p className="kicker mt-4">{DISCLAIMER}</p>
       </div>
     </footer>
   );

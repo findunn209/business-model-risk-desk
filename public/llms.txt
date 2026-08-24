@@ -7,13 +7,9 @@ Public site. No auth. Assessments of live URLs are not available yet.
 ## Pages
 
 - [Home](/): wordmark, promise, URL field (disabled; assessments next).
-- [Method](/method): glance object; we refuse a company score.
+- [Method](/method): glance object (`dominant_break`, `time_to_break`, `evidence`, `model_condition`).
 - [Sample anatomy](/sample): how to read the frozen sample.
-- [Sample report (HTML)](/r/sample): frozen labeled-fiction assessment of Porchlist, a fake local-services marketplace.
+- [Sample report (HTML)](/r/sample): frozen labeled-fiction assessment of Porchlist, a fake local-services marketplace. Dominant break is payment-company approval to sit in the money (inferred). Also: merchant of record vs platform, vetting, off-platform repeat work.
 - [Sample report (Markdown)](/r/sample.md): the same data as markdown.
-
-## What this is not
-
-Not a credit rating. Not investment advice. Not a verdict on whether a company should exist. Not a 0–100 score, letter grade, or Clear / Watch / Blocked credit label.
 
 The glance object is four fields: dominant_break, time_to_break (already | this_cycle | later | unbounded_if_holds), evidence (measured | inferred | unknown), model_condition (breaking | fragile | contingent | insufficient_evidence).

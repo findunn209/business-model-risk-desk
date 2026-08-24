@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { EvidenceRail } from "@/components/EvidenceRail";
 import { FailureModes } from "@/components/FailureModes";
 import { GlanceObject } from "@/components/GlanceObject";
 import { HoldPlan } from "@/components/HoldPlan";
+import { PageKicker } from "@/components/PageKicker";
 import { sampleReport } from "@/lib/sample-report";
 
 export const metadata: Metadata = {
@@ -23,24 +23,19 @@ export default function SampleReportPage() {
         {" ↔ "}
         HTML
       </p>
-      <div className="mt-3">
-        <DisclaimerBanner />
-      </div>
+      <PageKicker className="mt-3" />
 
       <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight">
         {report.company.name}
       </h1>
       <p className="mt-3 max-w-measure leading-snug">{report.company.form}</p>
+      <p className="mt-4 max-w-measure leading-relaxed">
+        {report.company.claimed_model}
+      </p>
 
       <div className="mt-10">
         <GlanceObject glance={report.glance} />
       </div>
-      <p className="kicker mt-6 max-w-measure">
-        Not a 0–100 score. Not a letter grade. Not Clear / Watch / Blocked as
-        credit. Dominant break is the failure mode most likely to break this
-        model as drawn. Rows are breaks; they are not rolled into a company
-        total.
-      </p>
 
       <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(13rem,1fr)] lg:gap-16">
         <FailureModes rows={report.failure_modes} />
