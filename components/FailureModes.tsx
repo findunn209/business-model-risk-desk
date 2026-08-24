@@ -1,5 +1,6 @@
 import { Chip } from "@/components/Chip";
-import { TIME_TO_BREAK_LABEL } from "@/lib/glance";
+import { Term } from "@/components/Term";
+import { FAILURE_MODE_DEFINITION, TIME_TO_BREAK_LABEL } from "@/lib/glance";
 import type { FailureModeRow } from "@/lib/sample-report";
 
 export function FailureModes({ rows }: { rows: FailureModeRow[] }) {
@@ -8,6 +9,9 @@ export function FailureModes({ rows }: { rows: FailureModeRow[] }) {
       <h2 id="failure-modes-heading" className="section-label">
         Failure modes
       </h2>
+      <p className="mt-2 max-w-measure text-sm leading-relaxed text-muted">
+        {FAILURE_MODE_DEFINITION}
+      </p>
       <ol className="mt-5 divide-y divide-rule border-y border-rule">
         {rows.map((row) => (
           <li
@@ -21,6 +25,16 @@ export function FailureModes({ rows }: { rows: FailureModeRow[] }) {
                 {row.failure_mode}
               </h3>
             </div>
+            {row.jargon?.map((item) => (
+              <p
+                key={item.term}
+                className="mt-2 max-w-measure text-sm leading-relaxed text-muted"
+              >
+                <Term definition={item.definition}>{item.term}</Term>
+                {" — "}
+                {item.definition}
+              </p>
+            ))}
             <p className="mt-2 max-w-measure leading-relaxed">
               {row.how_the_model_breaks}
             </p>

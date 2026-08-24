@@ -68,3 +68,10 @@ a {
   letter-spacing: 0.04em;
   color: var(--color-muted);
 }
+
+abbr.term {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--color-faint);
+  text-underline-offset: 0.18em;
+  cursor: help;
+}
