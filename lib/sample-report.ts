@@ -134,11 +134,15 @@ export const sampleReport: SampleReport = {
       title: "PSP underwrite tripwires",
       plan_label: "PSP underwrite tripwires",
       intro:
-        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Restricted, not prohibited. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” A marketplace is underwritten once, the same as a merchant of record selling their own products or services. Being in the flow of funds is that underwrite. Extra work is provider KYC, ability, quality, and cash for the days between charge and fulfillment. What they fail or condition is the three checks, not the funds flow itself.",
+        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” What they fail or condition is the three checks, not the funds flow itself.",
       items: [
         {
           lead: "Assumption on this sample",
           body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not checked who the worker is, that they can do this job here, and that the work got done. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a MID (the processor’s account number for you) is impossible. If those three checks were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes. TaskRabbit typically charges after a completion notice. Thumbtack is mostly lead-gen, with optional in-app pay.",
+        },
+        {
+          lead: "Underwritten once",
+          body: "A marketplace that sits in the money is underwritten once, the same way a merchant selling their own goods or services is underwritten once. Taking the customer’s payment, then paying the provider, is that one underwrite. Restricted, not prohibited. Extra work a single-MoR shop does not have: provider KYC, proof they can do the advertised job, and a post-job quality loop you own.",
         },
         {
           lead: "Two stacks",
@@ -146,11 +150,11 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "What they need to see",
-          body: "Honest funds flow: take the card and pay workers, or a lead fee only. Provider vetting in three parts you own: KYC on each provider (sub-merchant in a PSP underwrite), can they do the advertised job, and a post-job quality loop — pause payout until delivered, customer confirmation, ratings. Exposure is unfulfilled GMV for N days: days between charge and fulfillment times volume, then the dispute tail — same for monthly vs annual prepaid. Cash covers it. As volume grows, exposure grows.",
+          body: "Honest funds flow: take the card and pay workers, or a lead fee only. Provider vetting in three parts you own: KYC on each provider (sub-merchant in a PSP underwrite), can they do the advertised job, and a post-job quality loop — pause payout until delivered, customer confirmation, ratings. Exposure is unfulfilled GMV for N days: days between charge and fulfillment times volume, then the dispute tail — same for monthly vs annual prepaid. Delayed payout and cash for the charge-to-job gap. As volume grows, exposure grows.",
         },
         {
           lead: "What fails",
-          body: "No provider KYC. Cannot perform the advertised service. No quality or dispute loop while sitting in the money. Stealth aggregation on a vanilla SaaS MID. Future-service with no capital, hold, or quality loop. “We have reviews” is not that loop. Sitting in the money by itself is not the fail. MATCH (a list processors share of merchants they terminated), or hopping from a terminated contractor account into a “marketplace.”",
+          body: "No provider KYC. Cannot perform the advertised service. No quality or dispute loop while sitting in the money. Stealth aggregation on a vanilla SaaS MID. Future-service with no capital, hold, or quality loop. “We have reviews” is not that loop. Sitting in the money is not the fail. Missing that extra work is. MATCH (a list processors share of merchants they terminated), or hopping from a terminated contractor account into a “marketplace.”",
         },
         {
           lead: "Terms if they say yes",
