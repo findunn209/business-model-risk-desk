@@ -80,8 +80,7 @@ export const sampleReport: SampleReport = {
       "Homeowners find a plumber, electrician, or handyman in the app and pay in the app. The platform takes 18% of jobs booked there. Homeowners are bought with paid search. Trades are supposed to stay for scheduling, invoicing, and a “verified” badge.",
   },
   glance: {
-    dominant_break:
-      "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
+    dominant_break: "You charged the homeowner without checking the worker",
     time_to_break: "this_cycle",
     evidence: "inferred",
     model_condition: "contingent",
@@ -277,8 +276,7 @@ export function sampleReportMarkdown(): string {
   const r = sampleReport;
   const binds = planBinds(r);
   const glanceEvidenceNote = r.failure_modes.find(
-    (row) =>
-      row.failure_mode === r.glance.dominant_break && row.evidence_note,
+    (row) => row.evidence_note,
   )?.evidence_note;
 
   const glanceBlock = [

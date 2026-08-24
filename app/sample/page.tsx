@@ -31,10 +31,10 @@ export default function SampleAnatomyPage() {
         <h2 className="section-label">Glance</h2>
         <p className="mt-3 max-w-measure leading-relaxed">
           Four fields. For a first-time operator the money path breaks because
-          you took the homeowner’s payment without the three checks, not at
-          later off-platform leakage. Evidence is inferred. This fiction
-          assumes those checks are missing; if the operator had them, this
-          would not be the dominant break.
+          you charged the homeowner without checking the worker, not at later
+          off-platform leakage. Evidence is inferred. This fiction assumes
+          those checks are missing; if the operator had them, this would not
+          be the dominant break.
         </p>
         <div className="mt-6">
           <GlanceObject glance={glance} />
@@ -44,10 +44,11 @@ export default function SampleAnatomyPage() {
       <div className="mt-14">
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
-          The first three sit on this cycle: you took the money without the
-          three checks, charging the homeowner is being the merchant of record
-          because you take 100% of the payment, and a “verified” badge is not
-          a first-job check. Off-platform repeat business is later — you have
+          The first three sit on this cycle: you have not checked who the
+          worker is, that they can do this job here, and that the work got
+          done; charging the homeowner is being the merchant of record because
+          you take 100% of the payment; and a “verified” badge is not a
+          first-job check. Off-platform repeat business is later — you have
           to finish a first job before anyone can go around you. Two short
           sections on the report name processor underwrite tripwires and legal
           and contractable issues a first-time operator misses.

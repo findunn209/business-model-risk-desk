@@ -9,7 +9,7 @@ Public site. No auth. Assessments of live URLs are not available yet.
 - [Home](/): wordmark, promise, URL field (disabled; assessments next).
 - [Method](/method): glance object (`dominant_break`, `time_to_break`, `evidence`, `model_condition`).
 - [Sample anatomy](/sample): how to read the frozen sample.
-- [Sample report (HTML)](/r/sample): frozen labeled-fiction assessment of Porchlist, a fake local-services marketplace. Dominant break: you took the money and have not checked who the worker is, that they can do this job here, and that the work got done (inferred, contingent). Charging the homeowner is merchant of record because the operator takes 100% of the payment, then pays the worker. Also: first-job check, off-platform repeat work, PSP underwrite tripwires, legal and contractable.
+- [Sample report (HTML)](/r/sample): frozen labeled-fiction assessment of Porchlist, a fake local-services marketplace. Dominant break: You charged the homeowner without checking the worker (inferred, contingent). Charging the homeowner is merchant of record because the operator takes 100% of the payment, then pays the worker. Also: first-job check, off-platform repeat work, PSP underwrite tripwires, legal and contractable.
 - [Sample report (Markdown)](/r/sample.md): the same data as markdown.
 
 The glance object is four fields: dominant_break, time_to_break (already | this_cycle | later | unbounded_if_holds), evidence (measured | inferred | unknown), model_condition (breaking | fragile | contingent | insufficient_evidence).
