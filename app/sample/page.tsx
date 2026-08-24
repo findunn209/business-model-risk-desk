@@ -44,14 +44,14 @@ export default function SampleAnatomyPage() {
       <div className="mt-14">
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
-          The first three sit on this cycle: you have not checked who the
-          worker is, that they can do this job here, and that the work got
-          done; charging the homeowner is being the merchant of record because
-          you take 100% of the payment; and a “verified” badge is not a
-          first-job check. Off-platform repeat business is later — you have
-          to finish a first job before anyone can go around you. Two short
-          sections on the report name processor underwrite tripwires and legal
-          and contractable issues a first-time operator misses.
+          The first three sit on this cycle: you charged the homeowner
+          without checking the worker, charging the homeowner is being the
+          merchant of record because you take 100% of the payment, and a
+          “verified” badge is not a first-job check. Off-platform repeat
+          business is later — you have to finish a first job before anyone
+          can go around you. Two short sections on the report name processor
+          underwrite tripwires and legal and contractable issues a first-time
+          operator misses.
         </p>
       </div>
 

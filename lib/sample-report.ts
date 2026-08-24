@@ -88,10 +88,9 @@ export const sampleReport: SampleReport = {
   failure_modes: [
     {
       id: "psp-balance-sheet",
-      failure_mode:
-        "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
+      failure_mode: "You charged the homeowner without checking the worker",
       how_the_model_breaks:
-        "You hold 100% of the customer payment without those three checks. Porchlist takes the homeowner’s card and pays the worker later.",
+        "You hold 100% of the payment; card in, worker paid later. You have not checked who the worker is, whether they can do this job here, and whether the work got done.",
       time_to_break: "this_cycle",
       evidence: "inferred",
       evidence_note:
