@@ -145,7 +145,7 @@ export const sampleReport: SampleReport = {
       title: "PSP underwrite tripwires",
       plan_label: "PSP underwrite tripwires",
       intro:
-        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Home-services marketplaces fail that check when they sit in the money, pay trades before the dispute window closes, or describe themselves as a platform while they are the merchant.",
+        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Home-services marketplaces fail that underwrite when they sit in the money, pay trades before the dispute window closes, or describe themselves as a platform while they are the merchant.",
       jargon: [
         {
           term: "KYB",
@@ -167,6 +167,16 @@ export const sampleReport: SampleReport = {
           definition:
             "Payment facilitator: you sit in the money and pay many sellers from one pot. They underwrite that as a platform, not a single shop.",
         },
+        {
+          term: "Connect",
+          definition:
+            "A processor product (for example Stripe Connect) for paying many trades from one platform.",
+        },
+        {
+          term: "MID",
+          definition:
+            "Merchant ID: the processor’s account number for you.",
+        },
       ],
       items: [
         {
@@ -175,15 +185,15 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "What they need to see",
-          body: "A legal entity, beneficial owners, and a matching bank account (KYB). A site that says what you sell, when the job happens, refunds and cancellations, and whose name is on the statement. One honest description: take the card and pay trades, or a lead fee only — mixing those is a review trigger. Merchant, platform, or sitting in the money. Job later versus pay out now: deposit versus full prepay versus pay-on-completion, and days between charge and job. Who refunds. Warranty or guaranteed work. How often cards get reversed on this kind of work (chargeback mix). MATCH. If you pay trades: payout identity checks, a volume forecast, and a balance sheet for 90–180 days of chargebacks after the trade is already paid. No history means they treat you as a new high-ticket contractor marketplace, not ordinary software billing.",
+          body: "A legal entity, beneficial owners, and a matching bank account. A site that says what you sell, when the job happens, refunds and cancellations, and whose name is on the statement. One honest description: take the card and pay trades, or a lead fee only — mixing those is a review trigger. Deposit versus full prepay versus pay-on-completion. Days between charge and job. Who refunds. Warranty or guaranteed work. If you pay trades: Connect or PayFac, payout identity checks (KYC), a volume forecast, and a balance sheet for 90–180 days of chargebacks after the trade is already paid. No history means they treat you as a new high-ticket contractor marketplace, not ordinary software billing.",
         },
         {
           lead: "What fails",
-          body: "Home services plus deposits are often high-risk. Refunds lag and there is no cash for a reserve. A first-time operator has no processing history. Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months. Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, negative-option plans, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account into a “marketplace.”",
+          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months (a balance-sheet fail). Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, negative-option plans, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account (MID) into a “marketplace.”",
         },
         {
           lead: "Terms if they say yes",
-          body: "Typical, not a promise. Selling the introduction and never taking the homeowner card is closer to a normal merchant account — charging the trade a lead fee still needs a clean statement name. If Porchlist takes the card: a marketplace review, delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more with a 90–180 day tail, higher fees than software billing, a personal guarantee on a new entity, and volume caps. Paying many trades from one pot is a platform / PayFac underwrite; they can freeze the whole platform.",
+          body: "Typical, not a promise. Selling the introduction and never taking the homeowner card is closer to a normal merchant account — charging the trade a lead fee still needs a clean statement name (descriptor). If Porchlist takes the card: a marketplace review, delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more with a 90–180 day tail, higher fees than software billing, a personal guarantee on a new entity, and volume caps. Paying many trades from one pot is a platform / PayFac underwrite; they can freeze the whole platform.",
         },
         {
           lead: "The termination path operators miss",
@@ -256,7 +266,7 @@ export const sampleReport: SampleReport = {
     },
     {
       failure_mode_id: "psp-underwrite-tripwires",
-      text: "If they say yes, budget delayed or held payouts, a rolling reserve with a 90–180 day tail, a personal guarantee, and volume caps. Do not pay trades before the dispute window closes.",
+      text: "If they say yes, budget delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more with a 90–180 day tail, a personal guarantee on a new entity, and volume caps. They can freeze the whole platform. Do not pay trades before the dispute window closes.",
     },
     {
       failure_mode_id: "merchant-of-record",
