@@ -4,13 +4,16 @@
   --font-sans: var(--font-ibm-plex-sans), "IBM Plex Sans", ui-sans-serif,
     system-ui, sans-serif;
   --font-serif: var(--font-newsreader), Newsreader, ui-serif, Georgia, serif;
-  --font-mono: ui-monospace, "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace,
+    "SFMono-Regular", Menlo, monospace;
   --color-paper: #f3eee4;
   --color-ink: #1b1814;
   --color-muted: #6e675c;
   --color-faint: #9a9286;
   --color-rule: #d8d0c4;
   --color-accent: #7a321c;
+  --max-width-measure: 36rem;
+  --max-width-canvas: 72rem;
 }
 
 html {
@@ -36,4 +39,32 @@ a {
 
 ::selection {
   background: #e6d3c4;
+}
+
+.chip {
+  display: inline-block;
+  border: 1px solid var(--color-rule);
+  padding: 0.22rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: var(--color-ink);
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
 }

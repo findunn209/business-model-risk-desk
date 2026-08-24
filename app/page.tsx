@@ -1,18 +1,19 @@
-import { PROMISE, SITE_NAME } from "@/lib/site";
+import Link from "next/link";
+import { DISPLAY_PROMISE, DISPLAY_SUB } from "@/lib/site";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center px-6 py-20">
-      <h1 className="max-w-xl font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl">
-        {SITE_NAME}
+    <main className="mx-auto flex w-full max-w-measure flex-1 flex-col justify-center px-6 py-16">
+      <h1 className="font-serif text-[2.15rem] font-medium leading-[1.15] tracking-tight text-ink sm:text-5xl">
+        {DISPLAY_PROMISE}
       </h1>
-      <p className="mt-6 max-w-xl text-lg leading-snug text-ink sm:text-xl">
-        {PROMISE}
+      <p className="mt-5 max-w-measure text-[1.05rem] leading-snug text-muted">
+        {DISPLAY_SUB}
       </p>
 
-      <form className="mt-14 max-w-xl" aria-describedby="url-helper">
-        <label htmlFor="url" className="block text-sm text-muted">
-          URL
+      <form className="mt-12" aria-label="Assessments next">
+        <label htmlFor="url" className="kicker block">
+          Assessments next
         </label>
         <input
           id="url"
@@ -21,12 +22,18 @@ export default function Home() {
           disabled
           placeholder="https://"
           autoComplete="off"
-          className="mt-2 w-full cursor-not-allowed border-0 border-b border-rule bg-transparent px-0 py-2 text-lg text-faint outline-none placeholder:text-faint"
+          className="mt-1.5 w-full max-w-sm cursor-not-allowed border-0 border-b border-rule bg-transparent px-0 py-1.5 text-sm text-faint outline-none placeholder:text-faint"
         />
-        <p id="url-helper" className="mt-3 text-sm text-muted">
-          Assessments next
-        </p>
       </form>
+
+      <p className="mt-10">
+        <Link href="/r/sample">Read the Porchlist sample</Link>
+      </p>
+      <p className="mt-3 text-[13px]">
+        <Link href="/method">Method</Link>
+        <span className="text-faint"> · </span>
+        <Link href="/r/sample.md">Markdown twin</Link>
+      </p>
     </main>
   );
 }

@@ -2,10 +2,16 @@ import { DISCLAIMER, PROMISE, SITE_NAME } from "./site";
 import type { Evidence, Glance, TimeToBreak } from "./glance";
 
 export type FailureModeRow = {
+  id: string;
   failure_mode: string;
   how_the_model_breaks: string;
   time_to_break: TimeToBreak;
   evidence: Evidence;
+};
+
+export type HoldPlanItem = {
+  failure_mode_id: string;
+  text: string;
 };
 
 export type SampleReport = {
@@ -18,7 +24,7 @@ export type SampleReport = {
   };
   glance: Glance;
   failure_modes: FailureModeRow[];
-  if_this_model_is_to_hold: string[];
+  if_this_model_is_to_hold: HoldPlanItem[];
   notes: string;
 };
 
@@ -39,6 +45,7 @@ export const sampleReport: SampleReport = {
   },
   failure_modes: [
     {
+      id: "post-match-disintermediation",
       failure_mode: "Post-match disintermediation",
       how_the_model_breaks:
         "After the first booked job, the homeowner and the trade exchange numbers. Repeat work never returns. The 18% take-rate is a tax on first contact, not a tax on the relationship the model claims to own.",
@@ -46,6 +53,7 @@ export const sampleReport: SampleReport = {
       evidence: "inferred",
     },
     {
+      id: "first-job-unit-economics",
       failure_mode: "First-job unit economics",
       how_the_model_breaks:
         "Paid homeowner acquisition costs more than the platform’s cut of a typical small job. Without repeat capture, contribution does not close. This follows from bypass; it does not require a separate scandal.",
@@ -53,6 +61,7 @@ export const sampleReport: SampleReport = {
       evidence: "inferred",
     },
     {
+      id: "supply-quality-unwind",
       failure_mode: "Supply quality unwind",
       how_the_model_breaks:
         "Competent trades leave once they have a book of off-platform regulars. What remains is new, unvetted, or desperate inventory. Homeowners learn this once, then stop opening the app.",
@@ -60,6 +69,7 @@ export const sampleReport: SampleReport = {
       evidence: "inferred",
     },
     {
+      id: "liability-as-employer-or-contractor",
       failure_mode: "Liability as employer or contractor",
       how_the_model_breaks:
         "A serious injury or property claim can reclassify the platform as the employer or the general contractor. Insurance then becomes the product. The marketplace story does not hold after that shift.",
@@ -67,6 +77,7 @@ export const sampleReport: SampleReport = {
       evidence: "unknown",
     },
     {
+      id: "demand-capture-by-search-and-incumbents",
       failure_mode: "Demand capture by search and incumbents",
       how_the_model_breaks:
         "“I need someone today” is already served by search ads, incumbent directories, and neighborhood groups. A thin marketplace that does not own the repeat relationship has no defensive query.",
@@ -75,9 +86,18 @@ export const sampleReport: SampleReport = {
     },
   ],
   if_this_model_is_to_hold: [
-    "Stop treating the take-rate as a tax on ongoing work the platform does not own. Charge once for an introduction, then sell tools a trade would pay for after they already have the homeowner’s number.",
-    "Or become the contractor of record: bonded jobs, employed or exclusive supply. That is a different business than a marketplace.",
-    "Or own a SKU the job cannot bypass—parts, materials, warranty—so the platform remains inside the transaction after the handshake.",
+    {
+      failure_mode_id: "first-job-unit-economics",
+      text: "Stop treating the take-rate as a tax on ongoing work the platform does not own. Charge once for an introduction, then sell tools a trade would pay for after they already have the homeowner’s number.",
+    },
+    {
+      failure_mode_id: "liability-as-employer-or-contractor",
+      text: "Or become the contractor of record: bonded jobs, employed or exclusive supply. That is a different business than a marketplace.",
+    },
+    {
+      failure_mode_id: "post-match-disintermediation",
+      text: "Or own a SKU the job cannot bypass—parts, materials, warranty—so the platform remains inside the transaction after the handshake.",
+    },
   ],
   notes:
     "Until one of those is true, “marketplace” here is a customer-acquisition funnel with a leak at the first handshake. We do not score Porchlist as a company. We describe where this internet/app model breaks.",
@@ -105,13 +125,19 @@ export function sampleReportMarkdown(): string {
     .join("\n");
 
   const plan = r.if_this_model_is_to_hold
-    .map((item) => `- ${item}`)
+    .map((item) => {
+      const mode = r.failure_modes.find((row) => row.id === item.failure_mode_id);
+      const bound = mode ? ` (${mode.failure_mode})` : "";
+      return `- ${item.text}${bound}`;
+    })
     .join("\n");
 
   return [
     `# ${r.company.name}`,
     "",
     `*Labeled fiction. Not a real company. Frozen sample from ${SITE_NAME}.*`,
+    "",
+    `*[HTML report](/r/sample)*`,
     "",
     `> ${DISCLAIMER}`,
     "",

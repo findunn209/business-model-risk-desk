@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Newsreader } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { PROMISE, SITE_NAME } from "@/lib/site";
@@ -18,6 +18,12 @@ const serif = Newsreader({
   variable: "--font-newsreader",
 });
 
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ibm-plex-mono",
+});
+
 export const metadata: Metadata = {
   title: {
     default: SITE_NAME,
@@ -28,7 +34,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html
+      lang="en"
+      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
+    >
       <body>
         <SiteHeader />
         {children}

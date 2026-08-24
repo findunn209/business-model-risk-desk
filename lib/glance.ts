@@ -45,3 +45,24 @@ export const MODEL_CONDITION_GLOSS: Record<ModelCondition, string> = {
   contingent: "Holds if an external condition continues.",
   insufficient_evidence: "We will not guess a condition.",
 };
+
+/** Human gloss for enum chips — not raw keys. */
+export const TIME_TO_BREAK_LABEL: Record<TimeToBreak, string> = {
+  already: "already",
+  this_cycle: "this cycle",
+  later: "later",
+  unbounded_if_holds: "unbounded if holds",
+};
+
+export const EVIDENCE_LABEL: Record<Evidence, string> = {
+  measured: "measured",
+  inferred: "inferred",
+  unknown: "unknown",
+};
+
+export const MODEL_CONDITION_LABEL: Record<ModelCondition, string> = {
+  breaking: "breaking",
+  fragile: "fragile",
+  contingent: "contingent",
+  insufficient_evidence: "insufficient evidence",
+};
