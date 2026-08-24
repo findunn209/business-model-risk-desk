@@ -80,8 +80,7 @@ export const sampleReport: SampleReport = {
       "Homeowners find a plumber, electrician, or handyman in the app and pay in the app. The platform takes 18% of jobs booked there. Homeowners are bought with paid search. Trades are supposed to stay for scheduling, invoicing, and a “verified” badge.",
   },
   glance: {
-    dominant_break:
-      "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
+    dominant_break: "You charged the homeowner without checking the worker",
     time_to_break: "this_cycle",
     evidence: "inferred",
     model_condition: "contingent",
@@ -89,10 +88,9 @@ export const sampleReport: SampleReport = {
   failure_modes: [
     {
       id: "psp-balance-sheet",
-      failure_mode:
-        "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
+      failure_mode: "You charged the homeowner without checking the worker",
       how_the_model_breaks:
-        "You hold 100% of the customer payment without those three checks. Porchlist takes the homeowner’s card and pays the worker later.",
+        "You hold 100% of the payment; card in, worker paid later. You have not checked who the worker is, whether they can do this job here, and whether the work got done.",
       time_to_break: "this_cycle",
       evidence: "inferred",
       evidence_note:
@@ -277,8 +275,7 @@ export function sampleReportMarkdown(): string {
   const r = sampleReport;
   const binds = planBinds(r);
   const glanceEvidenceNote = r.failure_modes.find(
-    (row) =>
-      row.failure_mode === r.glance.dominant_break && row.evidence_note,
+    (row) => row.evidence_note,
   )?.evidence_note;
 
   const glanceBlock = [
