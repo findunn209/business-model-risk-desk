@@ -45,7 +45,8 @@ export default function SampleAnatomyPage() {
           record, and anyone can sign up to do the work. Off-platform repeat
           business is later — you have to finish a first job before anyone can
           go around you. Two short sections on the report name processor
-          underwrite tripwires and legal tripwires a first-time operator misses.
+          underwrite tripwires and legal and contractable issues a first-time
+          operator misses.
         </p>
       </div>
 
@@ -56,8 +57,8 @@ export default function SampleAnatomyPage() {
           cash that can eat chargebacks and refunds for 90–180 days of volume,
           a processor check you can pass, treat charging the homeowner as being
           merchant of record (or charge the trade’s account / sell the
-          introduction only), get payments-legal eyes on money transmission,
-          vet for payout as well as skill, and keep the next job on the platform
+          introduction only), license and deposit rules before you scale, vet
+          for payout as well as skill, and keep the next job on the platform
           or stop sitting in the charge.
         </p>
       </section>

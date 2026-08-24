@@ -33,6 +33,7 @@ export type TripwireSection = {
   intro: string;
   items: TripwireItem[];
   jargon?: JargonDef[];
+  closer?: string;
 };
 
 export type PlanBind = {
@@ -144,7 +145,7 @@ export const sampleReport: SampleReport = {
       title: "PSP underwrite tripwires",
       plan_label: "PSP underwrite tripwires",
       intro:
-        "Before a processor lets Porchlist sit in the money, they run a check. This is what a first-time operator hits.",
+        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Home-services marketplaces fail that check when they sit in the money, pay trades before the dispute window closes, or describe themselves as a platform while they are the merchant.",
       jargon: [
         {
           term: "KYB",
@@ -161,57 +162,85 @@ export const sampleReport: SampleReport = {
           definition:
             "The processor holds back a slice of each job for a period, as cash against refunds and chargebacks.",
         },
+        {
+          term: "PayFac",
+          definition:
+            "Payment facilitator: you sit in the money and pay many sellers from one pot. They underwrite that as a platform, not a single shop.",
+        },
       ],
       items: [
         {
-          lead: "What they check",
-          body: "The company and its owners (KYB). A refund policy. Whether you are merchant, platform, or sitting in the money. Job later versus pay out now. How often cards get reversed on this kind of work. MATCH.",
+          lead: "Assumption on this sample",
+          body: "Porchlist takes the homeowner’s card (or sits in the money on some jobs), then pays the trade later. If the product never touches the card, the underwrite changes. Merchant of record is who charges the homeowner. Direct charge to the trade’s own merchant account is the only true platform path.",
         },
         {
-          lead: "Where first-time operators fail that check",
-          body: "Home services plus deposits are often high-risk. Refunds lag and there is no cash for a reserve. A first-time operator has no processing history.",
+          lead: "What they need to see",
+          body: "A legal entity, beneficial owners, and a matching bank account. A site that says what you sell, when the job happens, refunds and cancellations, and whose name is on the statement. One honest description: take the card and pay trades, or a lead fee only — mixing those is a review trigger. Deposit versus full prepay versus pay-on-completion. Days between charge and job. Who refunds. Warranty or guaranteed work. If you pay trades: payout identity checks, a volume forecast, and a balance sheet for 90–180 days of chargebacks after the trade is already paid. No history means they treat you as a new high-ticket contractor marketplace, not ordinary software billing.",
         },
         {
-          lead: "If they say yes",
-          body: "Expect a rolling reserve, delayed payout, and a personal guarantee (your own name on the hook).",
+          lead: "What fails",
+          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months. Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account into a “marketplace.”",
         },
         {
-          lead: "If they dump you",
-          body: "Termination can put you on MATCH. The next processor will see it.",
+          lead: "Terms if they say yes",
+          body: "Typical, not a promise. Selling the introduction and never taking the homeowner card is closer to a normal merchant account — charging the trade a lead fee still needs a clean statement name. If Porchlist takes the card: a marketplace review, delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more with a 90–180 day tail, higher fees than software billing, a personal guarantee on a new entity, and volume caps. Paying many trades from one pot is a platform / PayFac underwrite; they can freeze the whole platform.",
+        },
+        {
+          lead: "The termination path operators miss",
+          body: "Disputes or MATCH can end the account and list you. That listing follows the company — and sometimes the people — to the next processor.",
         },
       ],
     },
     {
-      id: "legal-tripwires",
-      title: "Legal tripwires a first-time operator misses",
-      plan_label: "Legal tripwires",
+      id: "legal-and-contractable",
+      title: "Legal and contractable",
+      plan_label: "Legal and contractable",
       intro:
-        "US home-services marketplace. Short, not a treatise.",
+        "US home-services marketplace. Short, not a treatise. What a first-time operator misses.",
       jargon: [
         {
           term: "money transmission",
           definition:
             "Moving other people’s money as a business — often a licensed activity.",
         },
+        {
+          term: "MCC",
+          definition:
+            "Merchant category code: the processor’s label for what you actually sell, taken from volume, not from the pitch.",
+        },
       ],
       items: [
         {
-          lead: "Taking the homeowner’s money",
-          body: "If you collect the card and pay the trade later, payments lawyers may treat you as money transmission and as merchant of record.",
+          lead: "Who the homeowner thinks they hired",
+          body: "Selling the introduction (the pro pays for a contact) is not the same as arranging the job and taking the money. If you price the job, are party to the contract, or take payment, states treat you more like a contractor than an app. Licensed trades (plumbing, electrical, HVAC, roofing) still need their licenses. Listing an unlicensed one is your problem too.",
         },
         {
-          lead: "Deposits and delayed jobs",
-          body: "Book today, job Saturday, a deposit. That makes the money-transmission and merchant-of-record read worse, not better.",
+          lead: "Deposits",
+          body: "Home-improvement rules often cap down payments (example: California, $1,000 or 10%, whichever is less) and require a written contract. If you are merchant of record, checkout is the down payment. “We held it for the pro” does not erase that.",
         },
         {
-          lead: "Listing is not a license",
-          body: "You are not a licensed-contractor marketplace just because you list plumbers. Their license is not yours.",
+          lead: "Worker classification",
+          body: "Prop 22 is rideshare, not cleaners and plumbers. California’s ABC test is the one home-services platforms lose if the product is the home service. Budget payroll if you need employees. Independent contractors still get litigated.",
         },
         {
-          lead: "The processor contract",
-          body: "It will demand a payout identity check (KYC), a refund policy, and they can dump you.",
+          lead: "“Vetted / insured / bonded” is a claim",
+          body: "If the check is old, the policy lapsed, or you did not verify the license for this job, that is a false-advertising problem. Background checks at scale have a federal process (FCRA). Requiring a certificate of insurance is not the same as you insuring the job.",
+        },
+        {
+          lead: "Holding customer money",
+          body: "Holding funds until the job is done can be money transmission or stored value. Do not keep homeowner funds in the operating account. No Porchlist Cash wallet without counsel.",
+        },
+        {
+          lead: "Payments legal",
+          body: "They will pick an MCC from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence. One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
+        },
+        {
+          lead: "Before you scale",
+          body: "License gate by trade and ZIP before the card is charged. Small deposit tied to work. Payout delay plus proof the job was done. Consent for SMS and email. No stored-value wallet.",
         },
       ],
+      closer:
+        "This is not legal advice; several of these need a lawyer before you scale.",
     },
   ],
   if_this_model_is_to_hold: [
@@ -221,19 +250,27 @@ export const sampleReport: SampleReport = {
     },
     {
       failure_mode_id: "psp-underwrite-tripwires",
-      text: "Have a real company, a refund policy, and cash for a rolling reserve before you apply. Expect delayed payout and a personal guarantee. Know that a dump can put you on MATCH.",
+      text: "Apply with one honest story — take the card and pay trades, or a lead fee only, not both. Entity, owners, matching bank, refunds and statement name on the site. Do not hop a terminated contractor account into a marketplace.",
+    },
+    {
+      failure_mode_id: "psp-underwrite-tripwires",
+      text: "If they say yes, budget delayed or held payouts, a rolling reserve with a 90–180 day tail, a personal guarantee, and volume caps. Do not pay trades before the dispute window closes.",
     },
     {
       failure_mode_id: "merchant-of-record",
       text: "If you charge the homeowner, you are the merchant of record: staff refunds, chargebacks, and support as the product. The only way customer service sits with the trade is to charge the trade’s own merchant account. The real off-ramp is a software or intro fee on the trade’s card or invoice — selling the introduction. Do not sit between homeowner and trade.",
     },
     {
-      failure_mode_id: "legal-tripwires",
-      text: "If you take the homeowner’s money and pay the trade later, get payments-legal eyes on money transmission before the first card. Listing plumbers does not make you a licensed contractor marketplace.",
+      failure_mode_id: "legal-and-contractable",
+      text: "License gate by trade and ZIP before the card is charged. Small deposit tied to work. Payout delay plus proof the job was done. No stored-value wallet. Do not keep homeowner funds in the operating account.",
+    },
+    {
+      failure_mode_id: "legal-and-contractable",
+      text: "One payments story on the receipt: either you sell the job or the pro is the merchant. Get a lawyer on money transmission, deposits, and worker classification before you scale.",
     },
     {
       failure_mode_id: "vetting",
-      text: "Vet workers before they see a homeowner and before they receive a payout: they are a real person, they can do the work, the payout account is theirs. A signup and a “verified” badge is not that check.",
+      text: "Vet workers before they see a homeowner and before they receive a payout: they are a real person, they can do the work, the payout account is theirs. A signup and a “verified” badge is not that check. “We have reviews” is not vetting.",
     },
     {
       failure_mode_id: "off-platform-repeat",
@@ -257,7 +294,8 @@ function tripwireMarkdown(section: TripwireSection): string {
   const head = gloss
     ? [`## ${section.title}`, "", gloss, "", section.intro, ""]
     : [`## ${section.title}`, "", section.intro, ""];
-  return [...head, items, ""].join("\n");
+  const tail = section.closer ? ["", `*${section.closer}*`, ""] : [""];
+  return [...head, items, ...tail].join("\n");
 }
 
 export function sampleReportMarkdown(): string {

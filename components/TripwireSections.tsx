@@ -29,6 +29,11 @@ export function TripwireSections({
               </li>
             ))}
           </ol>
+          {section.closer ? (
+            <p className="mt-5 text-sm leading-relaxed text-muted">
+              {section.closer}
+            </p>
+          ) : null}
         </section>
       ))}
     </div>
