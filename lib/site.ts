@@ -10,8 +10,8 @@ export const DISPLAY_PROMISE =
 export const DISPLAY_SUB = "We do not say if you should exist.";
 
 /**
- * One kicker per public page (home, method, report). Fold legal and
- * “not a score” into this line. Do not repeat it in body copy, banners, or footer.
+ * One kicker per public page (home, method, anatomy, report). Fold legal and
+ * “not a score” into this line. Do not restack a second kicker on the report.
  */
 export const PAGE_KICKER =
   "Not a credit rating, investment advice, or legal advice. Not a letter grade, 0–100 score, or a verdict on whether a company should exist.";

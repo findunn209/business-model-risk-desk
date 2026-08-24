@@ -32,7 +32,6 @@ export type TripwireSection = {
   plan_label: string;
   intro: string;
   items: TripwireItem[];
-  jargon?: JargonDef[];
   closer?: string;
 };
 
@@ -146,38 +145,6 @@ export const sampleReport: SampleReport = {
       plan_label: "PSP underwrite tripwires",
       intro:
         "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Home-services marketplaces fail that underwrite when they sit in the money, pay trades before the dispute window closes, or describe themselves as a platform while they are the merchant.",
-      jargon: [
-        {
-          term: "KYB",
-          definition:
-            "Know your business: they check the company is real, who owns it, and where the money would sit.",
-        },
-        {
-          term: "MATCH",
-          definition:
-            "A list processors share of merchants they terminated. The next processor can see you on it.",
-        },
-        {
-          term: "rolling reserve",
-          definition:
-            "The processor holds back a slice of each job for a period, as cash against refunds and chargebacks.",
-        },
-        {
-          term: "PayFac",
-          definition:
-            "Payment facilitator: you sit in the money and pay many sellers from one pot. They underwrite that as a platform, not a single shop.",
-        },
-        {
-          term: "Connect",
-          definition:
-            "A processor product (for example Stripe Connect) for paying many trades from one platform.",
-        },
-        {
-          term: "MID",
-          definition:
-            "Merchant ID: the processor’s account number for you.",
-        },
-      ],
       items: [
         {
           lead: "Assumption on this sample",
@@ -185,15 +152,15 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "What they need to see",
-          body: "A legal entity, beneficial owners, and a matching bank account. A site that says what you sell, when the job happens, refunds and cancellations, and whose name is on the statement. One honest description: take the card and pay trades, or a lead fee only — mixing those is a review trigger. Deposit versus full prepay versus pay-on-completion. Days between charge and job. Who refunds. Warranty or guaranteed work. If you pay trades: Connect or PayFac, payout identity checks (KYC), a volume forecast, and a balance sheet for 90–180 days of chargebacks after the trade is already paid. No history means they treat you as a new high-ticket contractor marketplace, not ordinary software billing.",
+          body: "A legal entity, beneficial owners, and a matching bank account (KYB: they check the company is real, who owns it, and where the money would sit). A site that says what you sell, when the job happens, refunds and cancellations, and whose name is on the statement. One honest description: take the card and pay trades, or a lead fee only — mixing those is a review trigger. Deposit versus full prepay versus pay-on-completion. Days between charge and job. Who refunds. Warranty or guaranteed work. If you pay trades: Connect or PayFac (a processor setup for paying many sellers from one pot; Stripe Connect is one product), payout identity checks (KYC), a volume forecast, and a balance sheet for 90–180 days of chargebacks after the trade is already paid. No history means they treat you as a new high-ticket contractor marketplace, not ordinary software billing.",
         },
         {
           lead: "What fails",
-          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months (a balance-sheet fail). Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, negative-option plans, or stored value without saying so. MATCH, or hopping from a terminated contractor merchant account (MID) into a “marketplace.”",
+          body: "Calling yourself a platform while you are merchant of record (PORCHLIST on the charge). Deposits for jobs weeks out with thin refunds — delayed fulfillment, like travel. No customer-service path. Paying trades instantly while disputes last months (a balance-sheet fail). Unverified trades (stolen identity or stolen cards); “we have reviews” is not vetting. Roofing, HVAC, large deposits, negative-option plans, or stored value without saying so. MATCH (a list processors share of merchants they terminated), or hopping from a terminated contractor merchant account (MID: the processor’s account number for you) into a “marketplace.”",
         },
         {
           lead: "Terms if they say yes",
-          body: "Typical, not a promise. Selling the introduction and never taking the homeowner card is closer to a normal merchant account — charging the trade a lead fee still needs a clean statement name (descriptor). If Porchlist takes the card: a marketplace review, delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more with a 90–180 day tail, higher fees than software billing, a personal guarantee on a new entity, and volume caps. Paying many trades from one pot is a platform / PayFac underwrite; they can freeze the whole platform.",
+          body: "Typical, not a promise. Selling the introduction and never taking the homeowner card is closer to a normal merchant account — charging the trade a lead fee still needs a clean statement name (descriptor). If Porchlist takes the card: a marketplace review, delayed or held payouts for 7–30 days, a rolling reserve of 5–10% or more (they hold back a slice of each job) with a 90–180 day tail, higher fees than software billing, a personal guarantee on a new entity, and volume caps. Paying many trades from one pot is a platform / PayFac underwrite; they can freeze the whole platform.",
         },
         {
           lead: "The termination path operators miss",
@@ -207,23 +174,6 @@ export const sampleReport: SampleReport = {
       plan_label: "Legal and contractable",
       intro:
         "US home-services marketplace. Short, not a treatise. What a first-time operator misses.",
-      jargon: [
-        {
-          term: "money transmission",
-          definition:
-            "Moving other people’s money as a business — often a licensed activity.",
-        },
-        {
-          term: "MCC",
-          definition:
-            "Merchant category code: the processor’s label for what you actually sell, taken from volume, not from the pitch.",
-        },
-        {
-          term: "FCRA",
-          definition:
-            "Fair Credit Reporting Act: federal rules for running background checks.",
-        },
-      ],
       items: [
         {
           lead: "Who the homeowner thinks they hired",
@@ -239,23 +189,22 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "“Vetted / insured / bonded” is a claim",
-          body: "If the check is old, the policy lapsed, or you did not verify the license for this job, that is a false-advertising problem. Background checks at scale have a federal process (FCRA). Requiring a certificate of insurance is not the same as you insuring the job.",
+          body: "If the check is old, the policy lapsed, or you did not verify the license for this job, that is a false-advertising problem. Background checks at scale have a federal process (FCRA: Fair Credit Reporting Act). Requiring a certificate of insurance is not the same as you insuring the job.",
         },
         {
           lead: "Holding customer money",
-          body: "Holding funds until the job is done can be money transmission or stored value. Do not keep homeowner funds in the operating account. No Porchlist Cash wallet without counsel.",
+          body: "Holding funds until the job is done can be money transmission (moving other people’s money as a business — often licensed) or stored value. Do not keep homeowner funds in the operating account. No Porchlist Cash wallet without counsel.",
         },
         {
           lead: "Payments legal",
-          body: "They will pick an MCC from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence. One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
+          body: "They will pick an MCC (merchant category code: the processor’s label for what you actually sell) from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence. One payments story on the receipt: either you sell the job or the pro is the merchant. Mixing both fails underwriting and contractor law in the same quarter.",
         },
         {
           lead: "Before you scale",
           body: "License gate by trade and ZIP before the card is charged. Small deposit tied to work. Payout delay plus proof the job was done. Consent for SMS and email. No stored-value wallet.",
         },
       ],
-      closer:
-        "This is not legal advice; several of these need a lawyer before you scale.",
+      closer: "This is not legal advice.",
     },
   ],
   if_this_model_is_to_hold: [
@@ -302,15 +251,13 @@ function jargonLine(row: { jargon?: JargonDef[] }): string {
 }
 
 function tripwireMarkdown(section: TripwireSection): string {
-  const gloss = jargonLine(section);
   const items = section.items
     .map((item) => `- **${item.lead}.** ${item.body}`)
     .join("\n");
-  const head = gloss
-    ? [`## ${section.title}`, "", gloss, "", section.intro, ""]
-    : [`## ${section.title}`, "", section.intro, ""];
   const tail = section.closer ? ["", `*${section.closer}*`, ""] : [""];
-  return [...head, items, ...tail].join("\n");
+  return [`## ${section.title}`, "", section.intro, "", items, ...tail].join(
+    "\n",
+  );
 }
 
 export function sampleReportMarkdown(): string {
@@ -343,7 +290,9 @@ export function sampleReportMarkdown(): string {
   const plan = r.if_this_model_is_to_hold
     .map((item, index) => {
       const bind = binds.find((row) => row.id === item.failure_mode_id);
-      const bound = bind ? ` (${bind.label})` : "";
+      const prevId =
+        index > 0 ? r.if_this_model_is_to_hold[index - 1].failure_mode_id : null;
+      const bound = bind && bind.id !== prevId ? ` (${bind.label})` : "";
       return `${index + 1}. ${item.text}${bound}`;
     })
     .join("\n");
