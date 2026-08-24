@@ -80,7 +80,8 @@ export const sampleReport: SampleReport = {
       "Homeowners find a plumber, electrician, or handyman in the app and pay in the app. The platform takes 18% of jobs booked there. Homeowners are bought with paid search. Trades are supposed to stay for scheduling, invoicing, and a “verified” badge.",
   },
   glance: {
-    dominant_break: "Missing provider controls while in the flow of funds",
+    dominant_break:
+      "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
     time_to_break: "this_cycle",
     evidence: "inferred",
     model_condition: "contingent",
@@ -88,26 +89,20 @@ export const sampleReport: SampleReport = {
   failure_modes: [
     {
       id: "psp-balance-sheet",
-      failure_mode: "Missing provider controls while in the flow of funds",
+      failure_mode:
+        "You took the money and have not checked who the worker is, that they can do this job here, and that the work got done",
       how_the_model_breaks:
-        "On this sample the operator takes the homeowner’s card, pays the worker later, and has not built the processor-required provider controls. If you charge the homeowner on your brand, pay the provider before confirmed fulfillment, and those controls are not in the file, you are unfunded merchant of record for unfulfilled GMV (the full amount the homeowner paid) for N days. Processors can onboard a marketplace that takes the customer payment. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” Approval is platform onboarding — your identity, tax, bank, delivery window, refund policy, financials — not a no. Two stacks. What the PSP requires of you is that first stack. What they will not do for you: KYC on the worker/provider (the person selling the service on the marketplace), proof they can do the advertised work, pause payout until delivered, customer confirmation of quality, ratings. Missing that second stack is the dominant break. The 18% take is economics. 100% of GMV is the card, chargeback, refund, and deposit exposure. Exposure is unfulfilled GMV from charge to job done, then the dispute tail. Same logic as subscriptions. A monthly charge is about a month of exposure; an annual charge is about a year. Cash on hand must cover that exposure at any time; as volume grows, exposure grows. Instant payout before the job is confirmed is how platform cash gets eaten, not why a merchant account is impossible.",
+        "You hold 100% of the customer payment without those three checks. Porchlist takes the homeowner’s card and pays the worker later.",
       time_to_break: "this_cycle",
       evidence: "inferred",
       evidence_note:
-        "This inferred fiction assumes those provider controls are missing. If the operator had them, this would not be the dominant break. The break is those unasked controls, not a processor denial.",
-      jargon: [
-        {
-          term: "PSP",
-          definition:
-            "Payment service provider. Stripe, Adyen, and the like: they move card money and decide who is allowed to hold customer funds.",
-        },
-      ],
+        "This inferred fiction assumes those three checks are not in the file. If they were, this would not be the dominant break.",
     },
     {
       id: "merchant-of-record",
       failure_mode: "Charging the homeowner is being the merchant of record",
       how_the_model_breaks:
-        "Porchlist is merchant of record because it accepts 100% of the homeowner’s payment, then pays the worker their share after the charge — real time or delayed. The 18% take rate is the fee, not the test; 100% of GMV is the exposure. If the customer books and pays on your site, app, or brand, you are merchant of record and you own the financial risk. Tools for that path include Stripe Connect, or a PSP plus a payouts rail (Hyperwallet, Payoneer, and the like). A payout rail KYCs payees and sends money. It does not move card risk if you already charged the homeowner. Marketplace facilitator is a sales-tax label. Saying you are a facilitator does not mean you are not the merchant. Checkout might name one provider, or hold funds until the job is done; either way, the charge is yours. TaskRabbit typically charges after a completion notice. Thumbtack is mostly lead-gen, with optional in-app pay. The bank statement says PORCHLIST, not the plumber. Services have no tracking number, so a homeowner can keep the work and still reverse the card (friendly fraud). Refunds and support land on whoever is merchant of record. Then a dual dispute: the homeowner reverses the job and the worker fights a reversed payout. The only real “platform, customer service sits with the worker” path is charging the worker’s own merchant account directly — not collecting the homeowner card and calling the worker’s payout account a pass-through.",
+        "Porchlist is merchant of record because it accepts 100% of the homeowner’s payment, then pays the worker their share after the charge — real time or delayed. The 18% take rate is the fee, not the test; 100% of GMV is the exposure. If the customer books and pays on your site, app, or brand, you are merchant of record and you own the financial risk. Tools for that path include Stripe Connect, or a PSP plus a payouts rail (Hyperwallet, Payoneer, and the like). A payout rail KYCs payees and sends money. It does not move card risk if you already charged the homeowner. Marketplace facilitator is a sales-tax label. Saying you are a facilitator does not mean you are not the merchant. Checkout might name one provider, or hold funds until the job is done; either way, the charge is yours. The bank statement says PORCHLIST, not the plumber. Services have no tracking number, so a homeowner can keep the work and still reverse the card (friendly fraud). Refunds and support land on whoever is merchant of record. Then a dual dispute: the homeowner reverses the job and the worker fights a reversed payout. The only real “platform, customer service sits with the worker” path is charging the worker’s own merchant account directly — not collecting the homeowner card and calling the worker’s payout account a pass-through.",
       time_to_break: "this_cycle",
       evidence: "inferred",
       jargon: [
@@ -120,9 +115,9 @@ export const sampleReport: SampleReport = {
     },
     {
       id: "vetting",
-      failure_mode: "No check that the worker is real or can do the work",
+      failure_mode: "A “verified” badge is not a first-job check",
       how_the_model_breaks:
-        "The app does not say how Porchlist knows a plumber is a plumber. Anyone can sign up. A “verified” badge is not proof of who will show up, that they may legally do this job here, or that the work will be done. That is KYC, license and ability, and post-job quality. Vetting is also the check before a payout: fake workers, stolen identity, first-job deposit theft. After the job: ratings and customer confirmation of quality, or the bench does not stay reliable. A skill failure comes back as a chargeback. Fraud comes back as a card-network flag. If Porchlist is merchant of record, they eat both. Bad first jobs are how homeowners learn not to open the app.",
+        "Anyone can sign up. Fake workers, stolen identity, first-job deposit theft. A skill failure comes back as a chargeback. Fraud comes back as a card-network flag. Bad first jobs are how homeowners learn not to open the app.",
       time_to_break: "this_cycle",
       evidence: "inferred",
     },
@@ -141,19 +136,23 @@ export const sampleReport: SampleReport = {
       title: "PSP underwrite tripwires",
       plan_label: "PSP underwrite tripwires",
       intro:
-        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Restricted, not prohibited. What they fail or condition is missing provider vetting, not the funds flow itself.",
+        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Restricted, not prohibited. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” What they fail or condition is the three checks, not the funds flow itself.",
       items: [
         {
           lead: "Assumption on this sample",
-          body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not built the processor-required provider controls. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a MID (the processor’s account number for you) is impossible. If those controls were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes.",
+          body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not checked who the worker is, that they can do this job here, and that the work got done. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a MID (the processor’s account number for you) is impossible. If those three checks were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes. TaskRabbit typically charges after a completion notice. Thumbtack is mostly lead-gen, with optional in-app pay.",
         },
         {
           lead: "Two underwrites",
           body: "An existing merchant can raise processing on an already-underwritten first-party account — same entity, same MCC (the processor’s category for what you sell), same flow. A marketplace-MoR program is a new or reclassified file because the platform takes 100% of customer funds and pays providers. Different contract. Sitting in the money is the second underwrite, not a bump on the first.",
         },
         {
+          lead: "Two stacks",
+          body: "What the processor requires of you: identity, tax, bank, financials, a site with delivery and refunds. What they will not do for you: the three checks. A payout rail (Hyperwallet, Payoneer, Connect payouts) KYCs payees and sends money. It does not move card risk if you already charged the homeowner.",
+        },
+        {
           lead: "What they need to see",
-          body: "Honest funds flow: take the card and pay workers, or a lead fee only. Provider vetting in three parts you own: KYC on each provider (sub-merchant in a PSP underwrite), can they do the advertised job, and a post-job quality loop — pause payout until delivered, customer confirmation, ratings. Exposure is days between charge and fulfillment times volume — same for monthly vs annual prepaid. Cash covers it.",
+          body: "Honest funds flow: take the card and pay workers, or a lead fee only. Provider vetting in three parts you own: KYC on each provider (sub-merchant in a PSP underwrite), can they do the advertised job, and a post-job quality loop — pause payout until delivered, customer confirmation, ratings. Exposure is unfulfilled GMV for N days: days between charge and fulfillment times volume, then the dispute tail — same for monthly vs annual prepaid. Cash covers it. As volume grows, exposure grows.",
         },
         {
           lead: "What fails",
@@ -224,7 +223,7 @@ export const sampleReport: SampleReport = {
   if_this_model_is_to_hold: [
     {
       failure_mode_id: "psp-balance-sheet",
-      text: "Build the provider controls payment companies require of you and will not do for you: KYC on the worker/provider, a check they can do the advertised work here, pause payout until delivered, post-job ratings and customer confirmation of quality. Capitalize in cash that can cover unfulfilled GMV for N days — charge to job done, then the dispute tail — at any time. Same logic as subscriptions: a monthly charge is about a month of exposure; an annual charge is about a year. As volume grows, exposure grows. This is a marketplace-MoR underwrite, not a raise on an existing first-party merchant account. If that cash and those controls are not in the file, this is not an on-platform take-rate business.",
+      text: "Check who the worker is, that they can do this job here, and that the work got done — before payout. Capitalize in cash that can cover the days between charge and job done, then the dispute tail. Same logic as subscriptions: a monthly charge is about a month of exposure; an annual charge is about a year. As volume grows, exposure grows. This is a marketplace-MoR underwrite, not a raise on an existing first-party merchant account.",
     },
     {
       failure_mode_id: "psp-underwrite-tripwires",
@@ -248,7 +247,7 @@ export const sampleReport: SampleReport = {
     },
     {
       failure_mode_id: "vetting",
-      text: "Vet workers before they see a homeowner and before they receive a payout: they are a real person, they may legally do this advertised job here, the payout account is theirs. After the job: ratings and customer confirmation of quality. A signup and a “verified” badge is not that check. “We have reviews” is not vetting.",
+      text: "A signup and a “verified” badge is not a first-job check. Pause payout until the work is confirmed. “We have reviews” is not that loop.",
     },
     {
       failure_mode_id: "off-platform-repeat",
@@ -256,7 +255,7 @@ export const sampleReport: SampleReport = {
     },
   ],
   notes:
-    "Until those are true, the 18% marketplace is a sketch of unfunded GMV: in the flow of funds without the provider controls a processor requires of you, and will not build for you. This inferred fiction assumes those controls are missing. If the operator had them, this would not be the dominant break. Evidence on this sample is inferred. Porchlist is labeled fiction.",
+    "Until those are true, the 18% marketplace is a sketch: you hold the homeowner’s payment without the three checks. This inferred fiction assumes those checks are missing. If the operator had them, this would not be the dominant break. Evidence on this sample is inferred. Porchlist is labeled fiction.",
 };
 
 function jargonLine(row: { jargon?: JargonDef[] }): string {

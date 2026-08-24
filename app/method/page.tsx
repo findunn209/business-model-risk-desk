@@ -113,10 +113,10 @@ export default function MethodPage() {
         <p className="mt-3 leading-relaxed">
           {sampleReport.company.name} — labeled fiction, not a real company.
           Evidence is inferred. This fiction assumes the operator takes the
-          homeowner’s card, pays the worker later, and has not built
-          processor-required provider controls. If those controls were in
-          the file, this would not be the dominant break. It does not invent
-          a processor denial.
+          homeowner’s card, pays the worker later, and has not checked who the
+          worker is, that they can do this job here, and that the work got
+          done. If those three checks were in the file, this would not be the
+          dominant break. It does not invent a processor denial.
         </p>
         <div className="mt-6">
           <GlanceObject glance={sampleReport.glance} />

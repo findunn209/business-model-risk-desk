@@ -30,11 +30,11 @@ export default function SampleAnatomyPage() {
       <div className="mt-12">
         <h2 className="section-label">Glance</h2>
         <p className="mt-3 max-w-measure leading-relaxed">
-          Four fields. For a first-time operator the money path breaks at
-          payment onboarding when provider controls are missing, not at later
-          off-platform leakage. Evidence is inferred. This fiction assumes
-          those controls are missing; if the operator had them, this would not
-          be the dominant break.
+          Four fields. For a first-time operator the money path breaks because
+          you took the homeowner’s payment without the three checks, not at
+          later off-platform leakage. Evidence is inferred. This fiction
+          assumes those checks are missing; if the operator had them, this
+          would not be the dominant break.
         </p>
         <div className="mt-6">
           <GlanceObject glance={glance} />
@@ -44,10 +44,10 @@ export default function SampleAnatomyPage() {
       <div className="mt-14">
         <FailureModes rows={failure_modes} />
         <p className="mt-4 max-w-measure leading-relaxed">
-          The first three sit on this cycle: missing provider controls while
-          in the flow of funds, charging the homeowner is being the merchant
-          of record because you take 100% of the payment, and anyone can sign
-          up to do the work. Off-platform repeat business is later — you have
+          The first three sit on this cycle: you took the money without the
+          three checks, charging the homeowner is being the merchant of record
+          because you take 100% of the payment, and a “verified” badge is not
+          a first-job check. Off-platform repeat business is later — you have
           to finish a first job before anyone can go around you. Two short
           sections on the report name processor underwrite tripwires and legal
           and contractable issues a first-time operator misses.
@@ -58,13 +58,12 @@ export default function SampleAnatomyPage() {
         <h2 className="section-label">If this model is to hold</h2>
         <p className="mt-3 leading-relaxed">
           The plan is numbered to those same breaks plus the tripwire sections:
-          provider controls a processor requires of you and will not build for
-          you, cash that can cover unfulfilled GMV as volume grows, a
-          marketplace-MoR underwrite you can pass, treat charging the
-          homeowner as being merchant of record (the take rate is the fee;
-          100% of GMV is the exposure — or charge the worker’s account / sell
-          the introduction only), license and deposit rules before you scale,
-          vet for payout as well as skill, and keep the next job on the
+          the three checks before payout, cash that can cover the days between
+          charge and job done as volume grows, a marketplace-MoR underwrite
+          you can pass, treat charging the homeowner as being merchant of
+          record (the take rate is the fee; 100% of GMV is the exposure — or
+          charge the worker’s account / sell the introduction only), license
+          and deposit rules before you scale, and keep the next job on the
           platform or stop sitting in the charge.
         </p>
       </section>
