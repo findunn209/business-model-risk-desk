@@ -60,12 +60,12 @@ export default function SampleAnatomyPage() {
         <p className="mt-3 leading-relaxed">
           The plan is numbered to those same breaks plus the tripwire sections:
           the three checks before payout, cash that can cover the days between
-          charge and job done as volume grows, a marketplace-MoR underwrite
-          you can pass, treat charging the homeowner as being merchant of
-          record (the take rate is the fee; 100% of GMV is the exposure — or
-          charge the worker’s account / sell the introduction only), license
-          and deposit rules before you scale, and keep the next job on the
-          platform or stop sitting in the charge.
+          charge and job done as volume grows, one honest funds flow, treat
+          charging the homeowner as being merchant of record (the take rate
+          is the fee; 100% of GMV is the exposure — or charge the worker’s
+          account / sell the introduction only), license and deposit rules
+          before you scale, and keep the next job on the platform or stop
+          sitting in the charge.
         </p>
       </section>
 

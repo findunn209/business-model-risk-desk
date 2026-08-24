@@ -134,15 +134,11 @@ export const sampleReport: SampleReport = {
       title: "PSP underwrite tripwires",
       plan_label: "PSP underwrite tripwires",
       intro:
-        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Restricted, not prohibited. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” What they fail or condition is the three checks, not the funds flow itself.",
+        "A processor is not grading whether Porchlist is a good business. They are deciding whether to let you take cards, and on what leash. Sitting in the money (take 100% of the customer payment, then pay providers) is a named product they sell — Connect-style destination charges; a contractor–homeowner marketplace is a documented example. Restricted, not prohibited. Stripe, Adyen, and PayPal sell “customers pay you, you pay sellers.” A marketplace is underwritten once, the same as a merchant of record selling their own products or services. Being in the flow of funds is that underwrite. Extra work is provider KYC, ability, quality, and cash for the days between charge and fulfillment. What they fail or condition is the three checks, not the funds flow itself.",
       items: [
         {
           lead: "Assumption on this sample",
           body: "The operator sits in the money: takes the homeowner’s card, pays the worker later, and has not checked who the worker is, that they can do this job here, and that the work got done. Instant payout to workers before the job is confirmed is how platform cash gets eaten, not why a MID (the processor’s account number for you) is impossible. If those three checks were in the file, this would not be the dominant break. If the product never touches the card, the underwrite changes. TaskRabbit typically charges after a completion notice. Thumbtack is mostly lead-gen, with optional in-app pay.",
-        },
-        {
-          lead: "Two underwrites",
-          body: "An existing merchant can raise processing on an already-underwritten first-party account — same entity, same MCC (the processor’s category for what you sell), same flow. A marketplace-MoR program is a new or reclassified file because the platform takes 100% of customer funds and pays providers. Different contract. Sitting in the money is the second underwrite, not a bump on the first.",
         },
         {
           lead: "Two stacks",
@@ -207,7 +203,7 @@ export const sampleReport: SampleReport = {
         },
         {
           lead: "Payments legal",
-          body: "They will pick an MCC from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence.",
+          body: "They will pick an MCC (the processor’s category for what you sell) from actual volume (HVAC, plumbing, roofing, cleaning), not the pitch. They refuse unlicensed home improvement, large deposits months before work, washing the category code, and guarantees you cannot evidence.",
         },
         {
           lead: "Before you scale",
@@ -221,7 +217,7 @@ export const sampleReport: SampleReport = {
   if_this_model_is_to_hold: [
     {
       failure_mode_id: "psp-balance-sheet",
-      text: "Check who the worker is, that they can do this job here, and that the work got done — before payout. Capitalize in cash that can cover the days between charge and job done, then the dispute tail. Same logic as subscriptions: a monthly charge is about a month of exposure; an annual charge is about a year. As volume grows, exposure grows. This is a marketplace-MoR underwrite, not a raise on an existing first-party merchant account.",
+      text: "Check who the worker is, that they can do this job here, and that the work got done — before payout. Capitalize in cash that can cover the days between charge and job done, then the dispute tail. Same logic as subscriptions: a monthly charge is about a month of exposure; an annual charge is about a year. As volume grows, exposure grows.",
     },
     {
       failure_mode_id: "psp-underwrite-tripwires",
