@@ -50,6 +50,7 @@ function answerField(id: QuestionId) {
     extra =
       " Marketplace three-check chip (not a q_three_checks id). Values: yes | not_yet | skip.";
   }
+  const punctuated = /[.?!]$/.test(title) ? title : `${title}.`;
   return z
     .union([
       values,
@@ -60,7 +61,7 @@ function answerField(id: QuestionId) {
       }),
     ])
     .optional()
-    .describe(`${title}.${extra} Omit for unknown.`);
+    .describe(`${punctuated}${extra} Omit for unknown.`);
 }
 
 const answersShape = Object.fromEntries(
