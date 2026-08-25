@@ -266,7 +266,7 @@ function Door({ onStart }: { onStart: () => void }) {
       </p>
       <p className="mt-10">
         <button type="button" className="primary-action" onClick={onStart}>
-          Start the file
+          Start the evidence file
         </button>
       </p>
     </div>
@@ -350,7 +350,7 @@ function Chips({
         {screen.chips.map((chip) => {
           const current = getAnswer(answers, chip.id);
           const helper =
-            chip.id === "q_provider_can" && showLicense
+            chip.id === "q_provider_can_do" && showLicense
               ? LICENSE_CAN_DO_HELPER
               : chip.helper;
           return (

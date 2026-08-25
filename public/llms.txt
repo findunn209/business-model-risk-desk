@@ -26,7 +26,7 @@ Agents POST facts they already have. They do not walk `/intake`.
   "answers": [
     {
       "question_id": "q_who_pays_whom",
-      "value": "take_then_pay",
+      "value": "customers_pay_me_then_providers",
       "evidence": "measured"
     }
   ]
@@ -37,14 +37,13 @@ Each answer is `question_id`, `value`, `evidence`. Omitting a field means asked 
 
 Question ids and values:
 
-- `q_who_pays_whom`: `i_sell` | `take_then_pay` | `they_pay_provider` | `skip`
+- `q_who_pays_whom`: `customers_pay_me_own` | `customers_pay_me_then_providers` | `customers_pay_provider_i_fee` | `skip`
 - `q_home_services`: `yes` | `no` | `skip`
 - `q_statement_name`: `mine_one_stack` | `mine_bank_fbo_payouts` | `providers` | `skip`
 - `q_charge_timing`: `before_exists` | `when_exists` | `after_confirm` | `skip`
 - `q_time_until_exists`: `days` | `weeks` | `months` | `skip` (only if charge is before the thing exists)
 - `q_when_pay_provider`: `instant_before_confirm` | `after_confirm` | `skip` (marketplace)
-- `q_provider_who`, `q_provider_can`, `q_work_got_done`: `yes` | `not_yet` | `skip` (marketplace three checks)
-- `q_license_at_zip`: `yes` | `not_yet` | `skip`
+- `q_provider_who`, `q_provider_can_do`, `q_provider_done`: `yes` | `not_yet` | `skip` (marketplace three checks). License-at-ZIP is helper copy on `q_provider_can_do`, not its own question.
 - `q_off_platform_repeat`: `they_leave` | `they_stay` | `skip`
 - `q_who_sets_price`: `platform` | `provider` | `skip`
 - `q_deposits`, `q_holding_funds`, `q_classification`: `yes` | `no` | `skip` (marketplace or home services)

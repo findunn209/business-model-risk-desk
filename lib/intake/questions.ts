@@ -29,7 +29,7 @@ export type Screen =
       question: string;
       helper?: string;
       chips: {
-        id: "q_provider_who" | "q_provider_can" | "q_work_got_done";
+        id: "q_provider_who" | "q_provider_can_do" | "q_provider_done";
         label: string;
         helper?: string;
       }[];
@@ -54,12 +54,15 @@ function who(answers: AnswerMap) {
 }
 
 export function isMarketplace(answers: AnswerMap): boolean {
-  return who(answers) === "take_then_pay";
+  return who(answers) === "customers_pay_me_then_providers";
 }
 
 export function theyCharge(answers: AnswerMap): boolean {
   const value = who(answers);
-  return value === "take_then_pay" || value === "i_sell";
+  return (
+    value === "customers_pay_me_then_providers" ||
+    value === "customers_pay_me_own"
+  );
 }
 
 export function isHomeServices(answers: AnswerMap): boolean {
@@ -92,17 +95,17 @@ export const SCREENS: Screen[] = [
     when: () => true,
     choices: [
       {
-        value: "i_sell",
+        value: "customers_pay_me_own",
         title: "I sell",
         body: "I take the payment for what I sell.",
       },
       {
-        value: "take_then_pay",
+        value: "customers_pay_me_then_providers",
         title: "I take, then pay providers",
         body: "The customer pays me. I pay the provider their share after.",
       },
       {
-        value: "they_pay_provider",
+        value: "customers_pay_provider_i_fee",
         title: "They pay the provider; I take a fee",
         body: "The customer pays the provider. I charge a fee or a lead.",
       },
@@ -217,26 +220,15 @@ export const SCREENS: Screen[] = [
         helper: "You know the person you will pay, for this job.",
       },
       {
-        id: "q_provider_can",
+        id: "q_provider_can_do",
         label: "Can do this job here",
+        helper: LICENSE_CAN_DO_HELPER,
       },
       {
-        id: "q_work_got_done",
+        id: "q_provider_done",
         label: "Work got done",
         helper: "You have a file that the job was done before payout.",
       },
-    ],
-  },
-  {
-    id: "q_license_at_zip",
-    kind: "choice",
-    skippable: true,
-    question: "Do you match an active license to this job ZIP before you charge?",
-    helper: LICENSE_CAN_DO_HELPER,
-    when: showLicenseLegal,
-    choices: [
-      { value: "yes", title: "Yes" },
-      { value: "not_yet", title: "Not yet" },
     ],
   },
   {
@@ -430,7 +422,11 @@ function labelFor(id: QuestionId, value: string): string {
     const choice = screen.choices.find((item) => item.value === value);
     if (choice) return choice.title;
   }
-  if (id === "q_provider_who" || id === "q_provider_can" || id === "q_work_got_done") {
+  if (
+    id === "q_provider_who" ||
+    id === "q_provider_can_do" ||
+    id === "q_provider_done"
+  ) {
     if (value === "yes") return "Yes";
     if (value === "not_yet") return "Not yet";
   }

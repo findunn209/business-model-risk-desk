@@ -67,8 +67,8 @@ function joinAnd(parts: string[]): string {
 function threeCheckLine(answers: AnswerMap): string {
   const { provider } = party(answers);
   const who = measuredValue(answers, "q_provider_who");
-  const can = measuredValue(answers, "q_provider_can");
-  const done = measuredValue(answers, "q_work_got_done");
+  const can = measuredValue(answers, "q_provider_can_do");
+  const done = measuredValue(answers, "q_provider_done");
   const missing: string[] = [];
   if (who === "not_yet") missing.push(`who the ${provider} is`);
   if (can === "not_yet") missing.push("whether they can do this job here");
@@ -86,8 +86,8 @@ function collectMisses(answers: AnswerMap): Miss[] {
   const marketplace = isMarketplace(answers);
   const charges = theyCharge(answers);
   const who = measuredValue(answers, "q_provider_who");
-  const can = measuredValue(answers, "q_provider_can");
-  const done = measuredValue(answers, "q_work_got_done");
+  const can = measuredValue(answers, "q_provider_can_do");
+  const done = measuredValue(answers, "q_provider_done");
   const instant =
     isMeasured(answers, "q_when_pay_provider", "instant_before_confirm") &&
     isMeasured(answers, "q_charge_timing", "before_exists");
@@ -159,19 +159,6 @@ function collectMisses(answers: AnswerMap): Miss[] {
       title: "You pay out without proof the work got done",
       body: threeCheckLine(answers),
       plan: "Pause payout until the work is confirmed. “We have reviews” is not that loop.",
-      time_to_break: timeForMiss(answers, "this_cycle"),
-      evidence: "measured",
-    });
-  }
-
-  if (isMeasured(answers, "q_license_at_zip", "not_yet")) {
-    misses.push({
-      id: "license-at-zip",
-      priority: 12,
-      glance: "You charge without matching a license to this job ZIP",
-      title: "You charge without matching a license to this job ZIP",
-      body: LICENSE_CAN_DO_HELPER,
-      plan: "License gate by trade and ZIP before the card is charged. “Vetted” without that file is a claim.",
       time_to_break: timeForMiss(answers, "this_cycle"),
       evidence: "measured",
     });
@@ -252,11 +239,11 @@ function attestedControls(answers: AnswerMap): boolean {
   if (isMarketplace(answers)) {
     return (
       measuredValue(answers, "q_provider_who") === "yes" &&
-      measuredValue(answers, "q_provider_can") === "yes" &&
-      measuredValue(answers, "q_work_got_done") === "yes"
+      measuredValue(answers, "q_provider_can_do") === "yes" &&
+      measuredValue(answers, "q_provider_done") === "yes"
     );
   }
-  if (measuredValue(answers, "q_who_pays_whom") === "they_pay_provider") {
+  if (measuredValue(answers, "q_who_pays_whom") === "customers_pay_provider_i_fee") {
     return true;
   }
   if (theyCharge(answers)) {
@@ -491,18 +478,18 @@ function fitModule(answers: AnswerMap): FitModule {
   const card = namedTool(answers, "q_tools_card");
   let psp =
     "Honest funds flow first: you take the card, or you do not. A processor shape comes after the plan.";
-  if (who === "take_then_pay" && statement === "mine_one_stack") {
+  if (who === "customers_pay_me_then_providers" && statement === "mine_one_stack") {
     psp =
       "One underwrite on you as merchant of record. Destination-charge stacks exist as a shape (Stripe Connect, PayPal Complete Payments). That is not a default and not an endorsement.";
-  } else if (who === "take_then_pay" && statement === "mine_bank_fbo_payouts") {
+  } else if (who === "customers_pay_me_then_providers" && statement === "mine_bank_fbo_payouts") {
     psp =
       "Card acquiring plus a payouts rail is the shape: acquiring on one side, Hyperwallet / Payoneer / Tipalti-class rails on the other. The rail does not move card risk.";
-  } else if (who === "they_pay_provider") {
+  } else if (who === "customers_pay_provider_i_fee") {
     psp =
       "A fee on the provider’s own merchant account. You are not sitting in the customer payment.";
-  } else if (who === "i_sell") {
+  } else if (who === "customers_pay_me_own") {
     psp = "A single merchant account for what you sell. One underwrite.";
-  } else if (who === "take_then_pay" && statement === "providers") {
+  } else if (who === "customers_pay_me_then_providers" && statement === "providers") {
     psp =
       "This file has two stories. Fit cannot pick a stack until the statement matches who took the payment.";
   }
@@ -546,27 +533,27 @@ function claimedModel(answers: AnswerMap): Report["company"] {
   const who = measuredValue(answers, "q_who_pays_whom");
   const home = isHomeServices(answers);
   let form = "An internet/app money path, from the evidence file.";
-  if (who === "take_then_pay" && home) {
+  if (who === "customers_pay_me_then_providers" && home) {
     form =
       "Two-sided marketplace matching customers with independent tradespeople for jobs in the home.";
-  } else if (who === "take_then_pay") {
+  } else if (who === "customers_pay_me_then_providers") {
     form =
       "Two-sided marketplace. The operator takes the customer payment, then pays providers.";
-  } else if (who === "i_sell" && home) {
+  } else if (who === "customers_pay_me_own" && home) {
     form = "A home-services operator selling their own work.";
-  } else if (who === "i_sell") {
+  } else if (who === "customers_pay_me_own") {
     form = "A merchant selling their own goods or services.";
-  } else if (who === "they_pay_provider") {
+  } else if (who === "customers_pay_provider_i_fee") {
     form = "An introduction or software fee. The customer pays the provider.";
   }
 
   const bits: string[] = [];
   if (site) bits.push(`Site named: ${site}.`);
-  if (who === "take_then_pay") {
+  if (who === "customers_pay_me_then_providers") {
     bits.push("The customer pays the operator. Providers are paid after.");
-  } else if (who === "i_sell") {
+  } else if (who === "customers_pay_me_own") {
     bits.push("The operator takes the customer payment for what they sell.");
-  } else if (who === "they_pay_provider") {
+  } else if (who === "customers_pay_provider_i_fee") {
     bits.push("The customer pays the provider. The operator takes a fee.");
   } else {
     bits.push("Funds flow was not named.");

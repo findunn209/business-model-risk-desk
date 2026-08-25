@@ -8,9 +8,8 @@ export const QUESTION_IDS = [
   "q_time_until_exists",
   "q_when_pay_provider",
   "q_provider_who",
-  "q_provider_can",
-  "q_work_got_done",
-  "q_license_at_zip",
+  "q_provider_can_do",
+  "q_provider_done",
   "q_off_platform_repeat",
   "q_who_sets_price",
   "q_deposits",
@@ -33,7 +32,12 @@ export type QuestionId = (typeof QUESTION_IDS)[number];
 export const SKIP = "skip";
 
 export const CHOICES = {
-  q_who_pays_whom: ["i_sell", "take_then_pay", "they_pay_provider", SKIP],
+  q_who_pays_whom: [
+    "customers_pay_me_own",
+    "customers_pay_me_then_providers",
+    "customers_pay_provider_i_fee",
+    SKIP,
+  ],
   q_home_services: ["yes", "no", SKIP],
   q_statement_name: [
     "mine_one_stack",
@@ -45,9 +49,8 @@ export const CHOICES = {
   q_time_until_exists: ["days", "weeks", "months", SKIP],
   q_when_pay_provider: ["instant_before_confirm", "after_confirm", SKIP],
   q_provider_who: ["yes", "not_yet", SKIP],
-  q_provider_can: ["yes", "not_yet", SKIP],
-  q_work_got_done: ["yes", "not_yet", SKIP],
-  q_license_at_zip: ["yes", "not_yet", SKIP],
+  q_provider_can_do: ["yes", "not_yet", SKIP],
+  q_provider_done: ["yes", "not_yet", SKIP],
   q_off_platform_repeat: ["they_leave", "they_stay", SKIP],
   q_who_sets_price: ["platform", "provider", SKIP],
   q_deposits: ["yes", "no", SKIP],
