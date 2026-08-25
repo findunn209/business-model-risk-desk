@@ -45,6 +45,11 @@ export default function Home() {
         <span className="text-faint"> · </span>
         <Link href="/r/sample.md">Markdown twin</Link>
       </p>
+      <p className="mt-8 max-w-measure text-[13px] text-muted">
+        Optional MCP tools live at{" "}
+        <span className="font-mono text-[12px]">/mcp</span>; add that URL in
+        your agent host — research agents do not receive them unless connected.
+      </p>
     </main>
   );
 }
