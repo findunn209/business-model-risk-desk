@@ -45,6 +45,11 @@ export default function Home() {
         <span className="text-faint"> · </span>
         <Link href="/r/sample.md">Markdown twin</Link>
       </p>
+      <p className="mt-8 max-w-measure text-[13px] text-muted">
+        If you use an agent, add{" "}
+        <span className="font-mono text-[12px]">/mcp</span> in the agent host.
+        It is optional.
+      </p>
     </main>
   );
 }

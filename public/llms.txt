@@ -17,6 +17,8 @@ The glance object is four fields: dominant_break, time_to_break (already | this_
 
 ## Agent intake
 
+Humans click `/intake`. Agents without MCP POST `/v1/intake`. MCP is optional — the user or their agent host must add the MCP URL. Research agents do not receive these tools unless connected.
+
 Agents POST facts they already have. They do not walk `/intake`.
 
 `POST /v1/intake` with `Content-Type: application/json`:
@@ -55,5 +57,14 @@ Question ids and values:
 - `q_this_cycle`: `live` | `pre_launch` | `skip`
 
 Returns `{ "report_id": "v1_…" }`. Then `GET /r/{id}` (HTML) or `GET /v1/reports/{id}` (same object as HTML). Free reports are truncated; the schema is the same.
+
+## MCP (optional)
+
+Streamable HTTP at `/mcp`. No auth. Two tools only:
+
+- `create_premortem`: same body as `POST /v1/intake` (answers object; omit a question id = unknown). Returns `report_id`.
+- `get_premortem`: same as `GET /v1/reports/{id}`. Not found if missing.
+
+The user or their agent host must add the MCP URL. This is not silent auto-install. `/.well-known/mcp.json` points at the Streamable HTTP URL. It is not a registry listing.
 
 Tools answers never set the glance. Dominant break is the first measured missing control for this money path.

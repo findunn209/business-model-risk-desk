@@ -13,13 +13,15 @@ This repository is that public site: a Next.js App Router app in TypeScript, dep
 - `/r/{id}` — minted HTML report from intake answers
 - `/v1/intake` — `POST` JSON intake for agents; returns `report_id`
 - `/v1/reports/{id}` — same report object as the HTML
+- `/mcp` — optional Streamable HTTP MCP (`create_premortem`, `get_premortem`); add the URL in the agent host
+- `/.well-known/mcp.json` — server card pointing at `/mcp` (not a registry listing)
 - `/r/sample` — frozen sample HTML report (labeled fiction)
 - `/r/sample.md` — the same assessment as markdown
 - `/method` — the glance object
 - `/sample` — anatomy of the sample report
 - `/llms.txt` — machine-readable list of those URLs
 
-Agents post facts they already have to `/v1/intake`. They do not walk `/intake`. Skip means unknown, not no. Omitting a field means it was not asked.
+Agents post facts they already have to `/v1/intake`. They do not walk `/intake`. Skip means unknown, not no. Omitting a field means it was not asked. MCP is optional: the user or their agent host must add `/mcp`. Research agents do not receive those tools unless connected.
 
 ## What a report is
 
