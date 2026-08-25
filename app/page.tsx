@@ -13,6 +13,15 @@ export default function Home() {
       </p>
       <PageKicker className="mt-6" />
 
+      <p className="mt-12">
+        <Link
+          href="/intake"
+          className="font-serif text-xl font-medium no-underline"
+        >
+          Start the evidence file
+        </Link>
+      </p>
+
       <form className="mt-12" aria-label="Assessments next">
         <label htmlFor="url" className="kicker block">
           Assessments next

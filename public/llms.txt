@@ -6,10 +6,54 @@ Public site. No auth. Assessments of live URLs are not available yet.
 
 ## Pages
 
-- [Home](/): wordmark, promise, URL field (disabled; assessments next).
+- [Home](/): wordmark, promise, Start the evidence file → `/intake`. URL field (disabled; assessments next).
+- [Evidence file](/intake): human questionnaire. One fact per screen. Skip means “I don’t know yet” (unknown, not no). Humans click. Agents do not walk this path.
 - [Method](/method): glance object (`dominant_break`, `time_to_break`, `evidence`, `model_condition`).
 - [Sample anatomy](/sample): how to read the frozen sample.
 - [Sample report (HTML)](/r/sample): frozen labeled-fiction assessment of Porchlist, a fake local-services marketplace. Dominant break: You charged the homeowner without checking the worker (inferred, contingent). Charging the homeowner is merchant of record because the operator takes 100% of the payment, then pays the worker. Also: first-job check, off-platform repeat work, PSP underwrite tripwires, legal and contractable.
 - [Sample report (Markdown)](/r/sample.md): the same data as markdown.
 
 The glance object is four fields: dominant_break, time_to_break (already | this_cycle | later | unbounded_if_holds), evidence (measured | inferred | unknown), model_condition (breaking | fragile | contingent | insufficient_evidence).
+
+## Agent intake
+
+Agents POST facts they already have. They do not walk `/intake`.
+
+`POST /v1/intake` with `Content-Type: application/json`:
+
+```json
+{
+  "answers": [
+    {
+      "question_id": "q_who_pays_whom",
+      "value": "customers_pay_me_then_providers",
+      "evidence": "measured"
+    }
+  ]
+}
+```
+
+Each answer is `question_id`, `value`, `evidence`. Omitting a field means asked is false and evidence is unknown. Skip (`"skip"`) is “I don’t know yet”: unknown, not no.
+
+Question ids and values:
+
+- `q_who_pays_whom`: `customers_pay_me_own` | `customers_pay_me_then_providers` | `customers_pay_provider_i_fee` | `skip`
+- `q_home_services`: `yes` | `no` | `skip`
+- `q_statement_name`: `mine_one_stack` | `mine_bank_fbo_payouts` | `providers` | `skip`
+- `q_charge_timing`: `before_exists` | `when_exists` | `after_confirm` | `skip`
+- `q_time_until_exists`: `days` | `weeks` | `months` | `skip` (only if charge is before the thing exists)
+- `q_when_pay_provider`: `instant_before_confirm` | `after_confirm` | `skip` (marketplace)
+- `q_provider_who`, `q_provider_can_do`, `q_provider_done`: `yes` | `not_yet` | `skip` (marketplace three checks). License-at-ZIP is helper copy on `q_provider_can_do`, not its own question.
+- `q_off_platform_repeat`: `they_leave` | `they_stay` | `skip`
+- `q_who_sets_price`: `platform` | `provider` | `skip`
+- `q_deposits`, `q_holding_funds`, `q_classification`: `yes` | `no` | `skip` (marketplace or home services)
+- `q_negative_option`: `yes` | `no` | `skip`
+- `q_cancel_path`: `yes` | `not_yet` | `skip`
+- `q_tools_card`, `q_tools_payouts`, `q_tools_fraud`, `q_tools_storefront`: short text or `skip` (never set the glance)
+- `q_entity`, `q_site`: short text or `skip`
+- `q_refund`: `yes` | `not_yet` | `skip`
+- `q_this_cycle`: `live` | `pre_launch` | `skip`
+
+Returns `{ "report_id": "v1_…" }`. Then `GET /r/{id}` (HTML) or `GET /v1/reports/{id}` (same object as HTML). Free reports are truncated; the schema is the same.
+
+Tools answers never set the glance. Dominant break is the first measured missing control for this money path.

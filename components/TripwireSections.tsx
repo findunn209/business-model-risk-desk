@@ -5,6 +5,7 @@ export function TripwireSections({
 }: {
   sections: TripwireSection[];
 }) {
+  if (!sections.length) return null;
   return (
     <div className="mt-14 max-w-measure space-y-14">
       {sections.map((section) => (

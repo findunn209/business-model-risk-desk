@@ -75,3 +75,71 @@ abbr.term {
   text-underline-offset: 0.18em;
   cursor: help;
 }
+
+.paper-card {
+  display: block;
+  width: 100%;
+  background: #f7f1e6;
+  border: 1px solid var(--color-rule);
+  padding: 1.15rem 1.25rem;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.paper-card:hover,
+.paper-card:focus-visible {
+  border-color: var(--color-ink);
+  outline: none;
+}
+
+.manila-sheet {
+  background: #e9dfc8;
+  border: 1px solid #d3c6ab;
+  padding: 1.25rem 1.35rem;
+}
+
+.primary-action {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-accent);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.quiet-action {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.primary-action:disabled,
+.quiet-action:disabled {
+  color: var(--color-faint);
+  cursor: not-allowed;
+}
+
+.chip-action {
+  border: 1px solid var(--color-rule);
+  background: transparent;
+  padding: 0.28rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.chip-action[aria-pressed="true"] {
+  border-color: var(--color-ink);
+  background: #efe6d6;
+}
