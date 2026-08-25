@@ -135,6 +135,8 @@ export default function MethodPage() {
       </section>
 
       <p className="mt-12">
+        <Link href="/intake">Start the evidence file</Link>
+        <span className="text-faint"> · </span>
         <Link href="/r/sample">Read the Porchlist sample</Link>
       </p>
     </main>

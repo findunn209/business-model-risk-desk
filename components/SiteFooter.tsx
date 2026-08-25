@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const links = [
+  { href: "/intake", label: "Evidence file", twin: false },
   { href: "/r/sample", label: "Sample", twin: false },
   { href: "/method", label: "Method", twin: false },
   { href: "/sample", label: "Anatomy", twin: false },

@@ -1,48 +1,28 @@
 import { PAGE_KICKER, PROMISE, SITE_NAME } from "./site";
 import { FAILURE_MODE_DEFINITION } from "./glance";
-import type { Evidence, Glance, TimeToBreak } from "./glance";
+import type { Glance } from "./glance";
+import type {
+  FailureModeRow,
+  HoldPlanItem,
+  JargonDef,
+  PlanBind,
+  TripwireItem,
+  TripwireSection,
+} from "./report";
+import { planBinds } from "./report";
 
-export type JargonDef = {
-  term: string;
-  definition: string;
+export type {
+  FailureModeRow,
+  HoldPlanItem,
+  JargonDef,
+  PlanBind,
+  TripwireItem,
+  TripwireSection,
 };
-
-export type FailureModeRow = {
-  id: string;
-  failure_mode: string;
-  how_the_model_breaks: string;
-  time_to_break: TimeToBreak;
-  evidence: Evidence;
-  /** Rail note when inferred/unknown needs a sample-specific caveat. */
-  evidence_note?: string;
-  jargon?: JargonDef[];
-};
-
-export type HoldPlanItem = {
-  failure_mode_id: string;
-  text: string;
-};
-
-export type TripwireItem = {
-  lead: string;
-  body: string;
-};
-
-export type TripwireSection = {
-  id: string;
-  title: string;
-  plan_label: string;
-  intro: string;
-  items: TripwireItem[];
-  closer?: string;
-};
-
-export type PlanBind = {
-  id: string;
-  label: string;
-};
+export { planBinds };
 
 export type SampleReport = {
+  id: "sample";
   slug: "sample";
   labeled_fiction: true;
   company: {
@@ -57,20 +37,8 @@ export type SampleReport = {
   notes: string;
 };
 
-export function planBinds(report: SampleReport): PlanBind[] {
-  return [
-    ...report.failure_modes.map((row) => ({
-      id: row.id,
-      label: row.failure_mode,
-    })),
-    ...report.tripwire_sections.map((section) => ({
-      id: section.id,
-      label: section.plan_label,
-    })),
-  ];
-}
-
 export const sampleReport: SampleReport = {
+  id: "sample",
   slug: "sample",
   labeled_fiction: true,
   company: {

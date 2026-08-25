@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PageKicker } from "@/components/PageKicker";
 
 export default function NotFound() {
   return (
@@ -9,6 +10,7 @@ export default function NotFound() {
       <p className="mt-4 max-w-measure text-muted">
         No page at this URL. Assessments of live sites are not available yet.
       </p>
+      <PageKicker className="mt-4" />
       <p className="mt-6">
         <Link href="/">Home</Link>
       </p>
